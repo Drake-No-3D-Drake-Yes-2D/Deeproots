@@ -21,10 +21,10 @@ import ContactsCollabs from './components/ContactsCollabs'
 import Admin from './components/Admin'
 
 const workshopSampleData = [
-  { id: 1, price: 10, title: "Cork & Crate", date: "Nov 14", image: "workshop.jpg" },
-  { id: 2, price: 11, title: "Crok & Creat", date: "Nov 15", image: "workshop.jpg" },
-  { id: 3, price: 12, title: "Corke & Crart", date: "Nov 16", image: "workshop.jpg" },
-  { id: 4, price: 14, title: "Corek & Kreat", date: "Nov 17", image: "workshop.jpg" }
+  { id: 1, price: 10, title: "Cork & Crate", date: "Wednesday, Nov 14", image: "workshopwide.png" },
+  { id: 2, price: 11, title: "Crok & Creat", date: "Thursday, Nov 15", image: "workshopwide.png" },
+  { id: 3, price: 12, title: "Corke & Crart", date: "Friday, Nov 16", image: "workshopwide.png" },
+  { id: 4, price: 14, title: "Corek & Kreat", date: "Saturday, Nov 17", image: "workshopwide.png" }
 ];
 
 export default function App() {

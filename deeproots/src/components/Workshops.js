@@ -1,13 +1,12 @@
 import React from 'react';
 import DefaultPage from './generic/DefaultPage';
-import VerticalGrid from './generic/VerticalGrid';
 import WorkshopCard from './WorkshopsCard';
 
 function WorkshopHeader(props) {
   return (
-    <div>
+    <h1>
       Workshop Header
-    </div>
+    </h1>
   );
 }
 
@@ -26,11 +25,9 @@ function WorkshopsList(props) {
 export default function Workshops(props) {
   return (
     <DefaultPage>
-      <VerticalGrid>
         <WorkshopHeader />
         <WorkshopBookYourOwn />
         <WorkshopsList workshops={props.workshops} />
-      </VerticalGrid>
     </DefaultPage>
   );
 }
