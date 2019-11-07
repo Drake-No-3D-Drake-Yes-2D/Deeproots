@@ -4,44 +4,44 @@ import {Link} from 'react-router-dom';
 export default function NavBar()
 {
   return (
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    	<div class="collapse navbar-collapse" id="navbarSupportedContent">
-    	  <ul class="navbar-nav mr-auto">
-    	    <li class="nav-item active">
-    	       <Link to="/Home" class="nav-link">Home</Link>
-    	       <span class="sr-only">(current)</span>
+    <nav className="navbar navbar-expand-lg navbar-light bg-light">
+        <div className="collapse navbar-collapse" id="navbarSupportedContent">
+    	  <ul className="navbar-nav mr-auto">
+    	    <li className="nav-item active">
+    	       <Link to="/Home" className="nav-link">Home</Link>
+    	       <span className="sr-only">(current)</span>
     	    </li>
 
-    	    <li class="nav-item">
-    	      <Link to="/about" class="nav-link">About</Link>
+    	    <li className="nav-item">
+    	      <Link to="/about" className="nav-link">About</Link>
     	    </li>
 
-    	    <li class="nav-item">
-    	      <Link to="/Workshops" class="nav-link">Workshops</Link>
+    	    <li className="nav-item">
+    	      <Link to="/Workshops" className="nav-link">Workshops</Link>
     	    </li>
 
-    	    <li class="nav-item">
-    	      <Link to="/CLC" class="nav-link">Creative Life Coaching</Link>
+    	    <li className="nav-item">
+    	      <Link to="/CLC" className="nav-link">Creative Life Coaching</Link>
     	    </li>
 
-    	    <li class="nav-item">
-    	      <Link to="/Ocourse" class="nav-link">Online Courses</Link>
+    	    <li className="nav-item">
+    	      <Link to="/Ocourses" className="nav-link">Online Courses</Link>
     	    </li>
 
-    	    <li class="nav-item">
-    	      <Link to="/Gallery" class="nav-link">Gallery</Link>
+    	    <li className="nav-item">
+    	      <Link to="/Gallery" className="nav-link">Gallery</Link>
     	    </li>
 
-    	    <li class="nav-item">
-    	      <Link to="/Demos" class="nav-link">Demos</Link>
+    	    <li className="nav-item">
+    	      <Link to="/Demos" className="nav-link">Demos</Link>
     	    </li>
 
-    	    <li class="nav-item">
-    	      <Link to="/Publications" class="nav-link">Publications</Link>
+    	    <li className="nav-item">
+    	      <Link to="/Publications" className="nav-link">Publications</Link>
     	    </li>
 
-    	    <li class="nav-item">
-    	      <Link to="/ContactsCollab" class="nav-link">Contacts & Collab</Link>
+    	    <li className="nav-item">
+    	      <Link to="/ContactsCollab" className="nav-link">Contacts & Collab</Link>
     	    </li>
 
     	    {/*<li class="nav-item dropdown">
