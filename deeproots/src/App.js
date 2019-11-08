@@ -2,10 +2,7 @@ import React from 'react';
 import {
   BrowserRouter as Router,
   Switch,
-  Route,
-  Link,
-  useRouteMatch,
-  useParams
+  Route
 } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
@@ -23,17 +20,24 @@ import ContactsCollabs from './components/ContactsCollabs'
 
 import Admin from './components/Admin'
 
+const workshopSampleData = [
+  { id: 1, price: 10, title: "Cork & Crate", date: "Wednesday, Nov 14", image: "workshopwide.png" },
+  { id: 2, price: 11, title: "Crok & Creat", date: "Thursday, Nov 15", image: "workshopwide.png" },
+  { id: 3, price: 12, title: "Corke & Crart", date: "Friday, Nov 16", image: "workshopwide.png" },
+  { id: 4, price: 14, title: "Corek & Kreat", date: "Saturday, Nov 17", image: "workshopwide.png" }
+];
+
 export default function App() {
   return (
     <Router>
-      <div className ="App-background">
-        <NavBar/>
+      <div className="App-background">
+        <NavBar />
         <Switch>
           <Route path="/about">
             <About />
           </Route>
           <Route path="/Workshops">
-            <Workshops />
+            <Workshops workshops={workshopSampleData} />
           </Route>
           <Route path="/CLC">
             <CLC />
