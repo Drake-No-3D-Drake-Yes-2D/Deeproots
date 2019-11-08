@@ -20,6 +20,13 @@ import Collabs from './Collabs'
 
 import Admin from './Admin'
 
+const workshopSampleData = [
+  { id: 1, price: 10, title: "Cork & Crate", date: "Wednesday, Nov 14", image: "workshopwide.png" },
+  { id: 2, price: 11, title: "Crok & Creat", date: "Thursday, Nov 15", image: "workshopwide.png" },
+  { id: 3, price: 12, title: "Corke & Crart", date: "Friday, Nov 16", image: "workshopwide.png" },
+  { id: 4, price: 14, title: "Corek & Kreat", date: "Saturday, Nov 17", image: "workshopwide.png" }
+];
+
 export default function RouteManager(){
 	return ( 
   <Router>
@@ -31,7 +38,7 @@ export default function RouteManager(){
           </Route>
           
           <Route path="/Workshops">
-            <Workshops />
+            <Workshops workshops={workshopSampleData} />
           </Route>
 
           <Route path="/CLC">
