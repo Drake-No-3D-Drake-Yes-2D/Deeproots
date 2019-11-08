@@ -9,7 +9,7 @@ class NavBar extends React.Component{
 
 constructor(props){
   super(props);
-  this.state = {toggled: false};
+  this.state = {toggled: true};
 }
 
 
