@@ -1,8 +1,10 @@
-function myFunction() {
+import "./NavBar.css"
+
+export default function myFunction() {
   var x = document.getElementById("myTopnav");
-  if (x.className === "topnav") {
+  if (x.className === "Nav-topnav") {
     x.className += " responsive";
   } else {
-    x.className = "topnav";
+    x.className = "Nav-topnav";
   }
 }

@@ -2,6 +2,7 @@ import React from 'react';
 import {Link} from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "./NavBar.css"
+import dropDown from "./NavBarDropDown"
 
 
 /*function myFunction = (x) => {
@@ -23,7 +24,7 @@ class LoggingButton extends React.Component {
 export default function NavBar()
 {
   return (
-  <div class="Nav-topnav">
+  <div class="Nav-topnav" id="myTopnav">
     <a href="/Home" class="active">Home</a>
     <a href="/about">About</a>
     <a href="/Workshops">Workshops</a>
@@ -35,11 +36,9 @@ export default function NavBar()
     <a href="/Contacts">Contacts</a>
     <a href="/Collabs">Collabs</a>
 
-    <a href="javascript:void(0);" class="icon" onclick={this.handleClick()}>
+    <a href="javascript:void(0);" class="icon" onclick="dropDown()">
       <i class="fa fa-bars"></i>
     </a>
-
-    <myFunction/>
 
   </div>
   );
