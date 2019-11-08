@@ -1,10 +1,4 @@
 import React from 'react';
-<<<<<<< HEAD
-import "./General.css";
-
-export default function Workshops() {
-  return <h2 class="centerText">Workshops</h2>;
-=======
 import DefaultPage from './generic/DefaultPage';
 import WorkshopCard from './WorkshopsCard';
 
@@ -36,5 +30,4 @@ export default function Workshops(props) {
         <WorkshopsList workshops={props.workshops} />
     </DefaultPage>
   );
->>>>>>> origin/master
 }

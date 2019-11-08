@@ -1,15 +1,24 @@
 import React from 'react';
-<<<<<<< HEAD
-=======
 import {
   BrowserRouter as Router,
   Switch,
   Route
 } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
->>>>>>> origin/master
 import './App.css';
-import RouteManager from './components/RouteManager'
+import NavBar from './components/NavBar'
+
+import Home from './components/Home'
+import About from './components/About'
+import Workshops from './components/Workshops'
+import CLC from './components/CLC'
+import Ocourses from './components/Ocourses'
+import Gallery from './components/Gallery'
+import Demos from './components/Demos'
+import Publications from './components/Publications'
+import ContactsCollabs from './components/ContactsCollabs'
+
+import Admin from './components/Admin'
 
 const workshopSampleData = [
   { id: 1, price: 10, title: "Cork & Crate", date: "Wednesday, Nov 14", image: "workshopwide.png" },
@@ -20,9 +29,6 @@ const workshopSampleData = [
 
 export default function App() {
   return (
-<<<<<<< HEAD
-    <RouteManager/>
-=======
     <Router>
       <div className="App-background">
         <NavBar />
@@ -63,6 +69,5 @@ export default function App() {
         </Switch>
       </div>
     </Router>
->>>>>>> origin/master
   );
 }
