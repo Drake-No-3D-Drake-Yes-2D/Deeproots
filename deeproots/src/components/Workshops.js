@@ -1,5 +1,6 @@
 import React from 'react';
+import "./General.css";
 
 export default function Workshops() {
-  return <h2>Workshops</h2>;
+  return <h2 class="centerText">Workshops</h2>;
 }
