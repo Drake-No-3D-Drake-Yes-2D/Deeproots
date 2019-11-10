@@ -1,0 +1,31 @@
+.centerText{
+  padding: 10px;
+	text-align: center;
+  color: black;
+}
+
+.sideBar {
+  position: relative; 
+  bottom: 0px;
+  right: 0px;
+  height: 93vh;
+  width: 40vw;
+  vertical-align: bottom;
+  background-color: #90EE90;
+  overflow: hidden;
+}
+
+.bottomBar {
+  position: relative; 
+  bottom: -45vh;
+  height: 48vh;
+  width: 100vw;
+  vertical-align: bottom;
+  background-color: #90EE90;
+  overflow: hidden;
+}
+
+.container {
+  position: absolute;
+  padding: 10px 10px;
+}
