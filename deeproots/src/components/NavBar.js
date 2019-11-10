@@ -1,41 +1,36 @@
 import React from 'react';
-import {Link} from 'react-router-dom';
-
+import { NavLink } from 'react-router-dom';
 import './NavBar.css'
 
+class NavBar extends React.Component {
 
+  constructor(props) {
+    super(props);
+    this.state = { toggled: true };
+  }
 
-class NavBar extends React.Component{
+  render() {
+    return (
+      <div className={this.state.toggled ? "Nav-topnav" : "Nav-topnav responsive"} id="myTopnav">
+        <NavLink to="/Home">Home</NavLink>
+        <NavLink to="/About">About</NavLink>
+        <NavLink to="/Workshops">Workshops</NavLink>
+        <NavLink to="/CLC">CLC</NavLink>
+        <NavLink to="/OnlineCourses">Online Courses</NavLink>
+        <NavLink to="/Gallery">Gallery</NavLink>
+        <NavLink to="/Demos">Demos</NavLink>
+        <NavLink to="/Publications">Publications</NavLink>
+        <NavLink to="/Contacts">Contacts</NavLink>
+        <NavLink to="/Collabs">Collabs</NavLink>
 
-constructor(props){
-  super(props);
-  this.state = {toggled: true};
-}
+        <a className="icon" onClick={() => {
+          this.setState({ toggled: !this.state.toggled });
+        }}>
+          <i class="fa fa-bars"></i>
+        </a>
 
-
-render() {
-  return (
-  <div className={this.state.toggled? "Nav-topnav" : "Nav-topnav responsive"} id="myTopnav">
-    <a href="/Home" class="active">Home</a>
-    <a href="/about">About</a>
-    <a href="/Workshops">Workshops</a>
-    <a href="/CLC">Creative Life Coaching</a>
-    <a href="/Ocourse">Online Courses</a>
-    <a href="/Gallery">Gallery</a>
-    <a href="/Demos">Demos</a>
-    <a href="/Publications">Publications</a>
-    <a href="/Contacts">Contacts</a>
-    <a href="/Collabs">Collabs</a>
-
-    <a className="icon" onClick={() => {
-      this.setState({toggled: !this.state.toggled});
-      console.log("RUN~");
-    }}>
-      <i class="fa fa-bars"></i>
-    </a>
-
-  </div>
-  );
+      </div>
+    );
   }
 }
 
