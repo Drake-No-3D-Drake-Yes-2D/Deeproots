@@ -27,16 +27,16 @@ const workshopSampleData = [
   { id: 4, price: 14, title: "Corek & Kreat", date: "Saturday, Nov 17", image: "workshopwide.png" }
 ];
 
-export default function RouteManager(){
-	return ( 
-  <Router>
-      <div className ="App-background">
+export default function RouteManager() {
+  return (
+    <Router>
+      <div className="App-background">
         <NavBar/>
         <Switch>
           <Route path="/about">
             <About />
           </Route>
-          
+
           <Route path="/Workshops">
             <Workshops workshops={workshopSampleData} />
           </Route>
@@ -45,7 +45,7 @@ export default function RouteManager(){
             <CLC />
           </Route>
 
-          <Route path="/Ocourse">
+          <Route path="/OnlineCourses">
             <Ocourses />
           </Route>
 
@@ -62,7 +62,7 @@ export default function RouteManager(){
           </Route>
 
           <Route path="/Contacts">
-            <Contacts/>
+            <Contacts />
           </Route>
 
           <Route path="/Collabs">
