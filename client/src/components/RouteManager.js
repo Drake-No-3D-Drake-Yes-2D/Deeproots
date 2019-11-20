@@ -21,17 +21,24 @@ import Collabs from './Collabs'
 import Admin from './Admin'
 
 const workshopSampleData = [
-  { id: 1, price: 10, title: "Cork & Crate", date: "Wednesday, Nov 14", image: "workshopwide.png" },
-  { id: 2, price: 11, title: "Crok & Creat", date: "Thursday, Nov 15", image: "workshopwide.png" },
-  { id: 3, price: 12, title: "Corke & Crart", date: "Friday, Nov 16", image: "workshopwide.png" },
-  { id: 4, price: 14, title: "Corek & Kreat", date: "Saturday, Nov 17", image: "workshopwide.png" }
+  { id: 1, seats: 10, prices: [{ price: 10, title: "low price" }, { price: 10, title: "mid price" }, { price: 10, title: "high price" }], title: "Cork & Crate!", date: new Date('2019-12-17'), location: "todo", description: "todo", image: "workshopwide.png" },
+  { id: 2, seats: 10, prices: [{ price: 10, title: "low price" }, { price: 10, title: "mid price" }, { price: 10, title: "high price" }], title: "Crok & Creat!", date: new Date('2019-12-18'), location: "todo", description: "todo", image: "workshopwide.png" },
+  { id: 3, seats: 10, prices: [{ price: 10, title: "low price" }, { price: 10, title: "mid price" }, { price: 10, title: "high price" }], title: "Corke & Crart", date: new Date('2019-12-19'), location: "todo", description: "todo", image: "workshopwide.png" },
+  { id: 4, seats: 10, prices: [{ price: 10, title: "low price" }, { price: 10, title: "mid price" }, { price: 10, title: "high price" }], title: "Corek & Kreat", date: new Date('2019-12-20'), location: "todo", description: "todo", image: "workshopwide.png" }
+];
+
+const gallerySampleData = [
+  { id: 1, title: "art!", artist: "artist", description: "link?", prices: [{ price: 1, title: "12x6", quantity: 1 }, { price: 2, title: "12x8", quantity: Infinity }] },
+  { id: 2, title: "art!", artist: "artist", description: "link?", prices: [{ price: 1, title: "12x6", quantity: 0 }, { price: 2, title: "12x8", quantity: Infinity }] },
+  { id: 3, title: "art!", artist: "artist", description: "link?", prices: [{ price: 1, title: "12x6", quantity: 3 }, { price: 2, title: "12x8", quantity: Infinity }] },
+  { id: 4, title: "art!", artist: "artist", description: "link?", prices: [{ price: 1, title: "12x6", quantity: 2 }, { price: 2, title: "12x8", quantity: Infinity }] }
 ];
 
 export default function RouteManager() {
   return (
     <Router>
       <div className="App-background">
-        <NavBar/>
+        <NavBar />
         <Switch>
           <Route path="/about">
             <About />
@@ -50,7 +57,7 @@ export default function RouteManager() {
           </Route>
 
           <Route path="/Gallery">
-            <Gallery />
+            <Gallery art={gallerySampleData} />
           </Route>
 
           <Route path="/Demos">
