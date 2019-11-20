@@ -17,11 +17,11 @@ import Gallery from './Gallery'
 import Demos from './Demos'
 import Publications from './Publications'
 import Contacts from './Contacts'
-import Collabs from './Collabs'
+import Collabs from './Collabs.js'
 
 import Admin from './Admin'
 import Edit from './Edit'
-
+import PaymentForm from './PaymentForm.js'
 
 const workshopSampleData = [
   { id: 1, price: 10, title: "Cork & Crate", date: "Wednesday, Nov 14", image: "workshopwide.png" },
@@ -79,6 +79,10 @@ export default function RouteManager() {
 
           <Route path="/Edit">
             <Edit />
+          </Route>
+
+          <Route path="/payment">
+            <PaymentForm />
           </Route>
 
           <Route path="/">

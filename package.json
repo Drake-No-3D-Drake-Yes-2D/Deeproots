@@ -29,7 +29,8 @@
     "morgan": "^1.9.1",
     "should": "^13.2.3",
     "supertest": "^4.0.2",
-    "mocha": "^6.2.1"
+    "mocha": "^6.2.1",
+    "square-connect": "2.20190814.0"
   },
   "homepage": "https://github.com/Drake-No-3D-Drake-Yes-2D/Deeproots#readme"
 }
