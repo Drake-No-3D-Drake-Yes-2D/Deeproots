@@ -82,11 +82,13 @@ export default function RouteManager() {
             <Edit />
           </Route>
 
-          <Route path="/">
+          <Route path="/Home">
             <Home />
           </Route>
-
         </Switch>
+        
+        <Redirect from="/" to="/Home" />
+
       </div>
     </Router>
   )
