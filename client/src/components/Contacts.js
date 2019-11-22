@@ -3,10 +3,12 @@ import "./General.css";
 
 export default function Contacts() {
   return (
-    <div class="bottomBar">
-    	<h2 class="centerText">
-    		Contacts
-    	</h2>
+    <div className ="background">
+      <div class="bottomBar">
+        <h2 class="centerText">
+          Contacts
+        </h2>
+      </div>
     </div>
   );
 }

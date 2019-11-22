@@ -2,10 +2,12 @@ import React from 'react'
 import {
   BrowserRouter as Router,
   Switch,
-  Route
+  Route,
+  Redirect
 } from 'react-router-dom';
 
 import NavBar from './NavBar'
+import Background from './Background'
 
 import Home from './Home'
 import About from './About'
@@ -19,6 +21,8 @@ import Contacts from './Contacts'
 import Collabs from './Collabs'
 
 import Admin from './Admin'
+import Edit from './Edit'
+
 
 const workshopSampleData = [
   { id: 1, price: 10, title: "Cork & Crate", date: "Wednesday, Nov 14", image: "workshopwide.png" },
@@ -27,10 +31,11 @@ const workshopSampleData = [
   { id: 4, price: 14, title: "Corek & Kreat", date: "Saturday, Nov 17", image: "workshopwide.png" }
 ];
 
+
 export default function RouteManager() {
   return (
     <Router>
-      <div className="App-background">
+      <div>
         <NavBar/>
         <Switch>
           <Route path="/about">
@@ -73,6 +78,10 @@ export default function RouteManager() {
             <Admin />
           </Route>
 
+          <Route path="/Edit">
+            <Edit />
+          </Route>
+
           <Route path="/">
             <Home />
           </Route>
@@ -81,4 +90,4 @@ export default function RouteManager() {
       </div>
     </Router>
   )
-} 
+}

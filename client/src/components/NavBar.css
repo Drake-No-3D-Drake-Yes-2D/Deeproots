@@ -10,21 +10,24 @@
 .Nav-topnav a {
   float: left;
   color: #f2f2f2;
+  transition: all .5s linear;
   text-align: center;
-  padding: 14px 37px;
+  padding: 16px 43.1px;
   text-decoration: none;
   font-size: 17px;
 }
 
 /* Change the color of links on hover */
 .Nav-topnav a:hover {
-  background-color: green;
+  background-color: yellowgreen;
+  font-size: 20px;
   color: black;
 }
 
 /* Add a color to the active/current link */
 .Nav-topnav a.active {
   background-color: green;
+  font-size: 20px;
   color: white;
 }
 
