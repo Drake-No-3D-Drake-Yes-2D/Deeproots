@@ -33,7 +33,7 @@ class Admin extends React.Component {
 
   render() {
     return (
-        <div>
+        <div className ="background-Unscaled">
           <center>
             <h2>Admin</h2>
                   <form onSubmit={this.getPassword.bind(this)}>

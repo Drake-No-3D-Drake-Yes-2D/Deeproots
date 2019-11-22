@@ -7,6 +7,7 @@ import {
 } from 'react-router-dom';
 
 import NavBar from './NavBar'
+import Background from './Background'
 
 import Home from './Home'
 import About from './About'
@@ -34,7 +35,7 @@ const workshopSampleData = [
 export default function RouteManager() {
   return (
     <Router>
-      <div className="App-background">
+      <div>
         <NavBar/>
         <Switch>
           <Route path="/about">
@@ -84,7 +85,6 @@ export default function RouteManager() {
           <Route path="/">
             <Home />
           </Route>
-
 
         </Switch>
       </div>

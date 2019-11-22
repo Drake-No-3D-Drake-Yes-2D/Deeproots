@@ -10,42 +10,12 @@
   font-size: 48px;
 }
 
-.App-Title
-{
-  position: absolute;
-  width: 30%;
-  height: 0%;
-  left: 35%;
-  top: 60%;
-
-
+.App-Title{  
   color:  #04F1B8;
   font-family: Quicksand;
   font-style: normal;
   font-size: 35px;
   font-weight: bold;
   line-height: 60px;
-  display: flex;
-  align-items: center;
   text-align: center;
-}
-
-
-.App-Circle {
-position: absolute;
-width: 302px;
-height: 302px;
--moz-border-radius: 50px/50px;
--webkit-border-radius: 50px 50px;
-border-radius: 302px/302px;
-background: rgba(174, 237, 111, 0.45);
-}
-
-.App-background {
-position: absolute;
-left: 0%;
-right: 0%;
-top: 0%;
-bottom: 0%;
-background-image: linear-gradient(180deg, rgba(255, 255, 255, 0.36) 8.19%, rgba(255, 249, 114, 0.162) 40.19%, rgba(0, 255, 25, 0.36) 99.07%);
 }

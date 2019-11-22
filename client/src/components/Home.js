@@ -1,9 +1,10 @@
 import React from 'react';
 import logo from '../static/Logo.png';
 import '../App.css';
+import './General.css';
 
 export default function Home() {
-  return <div className = "App-CenterText">
+  return <div className = "background-Unscaled">
     <img src={logo} className="App-logo" alt="logo"/>; 
     <div className = "App-Title">
       DEEPROOTS<br/>Arts and Culture Creative LLC

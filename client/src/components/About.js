@@ -3,7 +3,7 @@ import "./General.css";
 
 export default function About() {
   return (
-    <div>
+    <div className = "background">
       <div class = "sideBar">
   		  <h2 class= "centerText">
           About 
