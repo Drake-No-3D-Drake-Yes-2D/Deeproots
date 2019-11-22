@@ -5,9 +5,9 @@ import './General.css';
 
 export default function Home() {
   return <div className = "background-Unscaled">
-    <img src={logo} className="App-logo" alt="logo"/>; 
+    <img src={logo} className="App-logo" alt="logo"/>
     <div className = "App-Title">
       DEEPROOTS<br/>Arts and Culture Creative LLC
     </div>
-  </div>;
+  </div>
 }
