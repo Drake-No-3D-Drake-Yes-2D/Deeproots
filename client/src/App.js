@@ -4,9 +4,17 @@ import './App.css';
 import RouteManager from './components/RouteManager'
 
 
+class App extends React.Component {
 
-export default function App() {
-  return (
-    <RouteManager/>
-  );
+  constructor(props) {
+    super(props);
+  }
+
+  render() {
+    return (
+      <RouteManager/>
+    );
+  }
 }
+
+export default App;
