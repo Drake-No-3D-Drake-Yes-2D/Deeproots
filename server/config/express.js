@@ -4,6 +4,7 @@ const path = require('path'),
     morgan = require('morgan'),
     bodyParser = require('body-parser'),
     contentRouter = require('../routes/content.routes');
+    workshopRouter = require('../routes/workshop.routes');
 
 module.exports.init = () => {
     /*
@@ -38,8 +39,9 @@ module.exports.init = () => {
     // body parsing middleware
     app.use(bodyParser.json());
 
-    // add a router
+    // add routers
     app.use('/api/content', contentRouter);
+    app.use('/api/workshop/', workshopRouter);
 
     if (process.env.NODE_ENV === 'production') {
         // Serve any static files
