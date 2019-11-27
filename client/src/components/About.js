@@ -1,26 +1,26 @@
 import React from 'react';
 import "./General.css";
+import api from '../api';
 
-export default function About() {
-  return (
-    <div className = "background">
-      <div class = "sideBar">
-  		  <h2 class= "centerText">
-          About 
-          <br/>
-          Deeproots
-        </h2>
-          <p class= "centerText">
-          Placeholder Text, Placeholder Text, Placeholder Text <br/>
-          Placeholder Text, Placeholder Text, Placeholder Text <br/>
-          Placeholder Text, Placeholder Text, Placeholder Text <br/>
-          Placeholder Text, Placeholder Text, Placeholder Text <br/>
-          Placeholder Text, Placeholder Text, Placeholder Text <br/>
-          Placeholder Text, Placeholder Text, Placeholder Text <br/>
-          Placeholder Text, Placeholder Text, Placeholder Text <br/>
-          Placeholder Text, Placeholder Text, Placeholder Text <br/>
-          </p>
+export default class About extends React.Component {
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      content: ''
+    }
+  }
+
+  async componentDidMount() {
+    const res = await api.get(`content/about`);
+    this.setState({ content: res.data });
+  }
+
+  render() {
+    return (
+      <div class="sideBar">
+        {this.state.content}
       </div>
-    </div>
-  );
+    );
+  }
 }
