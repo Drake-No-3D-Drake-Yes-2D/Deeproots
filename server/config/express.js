@@ -6,13 +6,15 @@ const path = require('path'),
     contentRouter = require('../routes/content.routes');
 
 module.exports.init = () => {
-    /* 
+    /*
         connect to database
         - reference README for db uri
     */
     mongoose.connect(process.env.DB_URI || require('./config').db.uri, {
         useNewUrlParser: true
     });
+    let db = mongoose.connection;
+    db.once('open', () => console.log('Connected to the database'));
     mongoose.set('useCreateIndex', true);
     mongoose.set('useFindAndModify', false);
 
@@ -51,4 +53,3 @@ module.exports.init = () => {
 
     return app
 }
-

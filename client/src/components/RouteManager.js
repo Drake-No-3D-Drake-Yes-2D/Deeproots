@@ -32,62 +32,92 @@ const workshopSampleData = [
 ];
 
 
-export default function RouteManager() {
-  return (
-    <Router>
-      <div>
-        <NavBar/>
-        <Switch>
-          <Route path="/about">
-            <About />
-          </Route>
+class RouteManager extends React.Component {
 
-          <Route path="/Workshops">
-            <Workshops workshops={workshopSampleData} />
-          </Route>
+  constructor(props) {
+    super(props);
+    this.state = {
+      auth: this.getAuth()
+    }
 
-          <Route path="/CLC">
-            <CLC />
-          </Route>
+  }
 
-          <Route path="/OnlineCourses">
-            <Ocourses />
-          </Route>
+  setAuth(val) {
+    this.setState({
+      auth: val
+    })
+    sessionStorage.setItem("auth", val);
+  }
 
-          <Route path="/Gallery">
-            <Gallery />
-          </Route>
+  getAuth() {
+    return sessionStorage.getItem("auth")
+  }
 
-          <Route path="/Demos">
-            <Demos />
-          </Route>
 
-          <Route path="/Publications">
-            <Publications />
-          </Route>
+  render() {
+    return (
+      <Router>
+        <div>
+          <NavBar/>
+          <Switch>
+            <Route path="/about">
+              <About />
+            </Route>
 
-          <Route path="/Contacts">
-            <Contacts />
-          </Route>
+            <Route path="/Workshops">
+              <Workshops workshops={workshopSampleData} />
+            </Route>
 
-          <Route path="/Collabs">
-            <Collabs />
-          </Route>
+            <Route path="/CLC">
+              <CLC />
+            </Route>
 
-          <Route path="/admin">
-            <Admin />
-          </Route>
+            <Route path="/OnlineCourses">
+              <Ocourses />
+            </Route>
 
-          <Route path="/Edit">
-            <Edit />
-          </Route>
+            <Route path="/Gallery">
+              <Gallery />
+            </Route>
 
-          <Route path="/">
-            <Home />
-          </Route>
+            <Route path="/Demos">
+              <Demos />
+            </Route>
 
-        </Switch>
-      </div>
-    </Router>
-  )
+            <Route path="/Publications">
+              <Publications />
+            </Route>
+
+            <Route path="/Contacts">
+              <Contacts />
+            </Route>
+
+            <Route path="/Collabs">
+              <Collabs />
+            </Route>
+
+            <Route path="/admin">
+              <Admin setAuth={this.setAuth.bind(this)}/>
+            </Route>
+
+            <Route path="/Edit">
+              <Edit isAuth={this.state.auth}/>
+            </Route>
+
+            <Route path="/Home">
+              <Home />
+            </Route>
+
+            <Redirect from="/" to="/Home" />
+
+
+          </Switch>
+
+
+        </div>
+      </Router>
+    )
+  }
 }
+
+export default RouteManager;
