@@ -9,20 +9,20 @@ function WorkshopCardHeader({ title, date }) {
     );
 }
 
-function WorkshopCardBody({ image, price, title }) {
+function WorkshopCardBody({ imageUrl, price, title }) {
     return (
         <div style={{ position: "relative" }}>
-            <img style={{ maxWidth: "100%", maxHeight: "100%" }} src={require(`../static/workshops/${image}`)} alt={title} />
+            <img style={{ maxWidth: "100%", maxHeight: "100%" }} src={imageUrl} alt={title} />
             <button style={{ position: "absolute", bottom: "10%", right: "5%" }}>Book Event (${price})</button>
         </div>
     );
 }
 
-export default function WorkshopCard({ date, title, price, image }) {
+export default function WorkshopCard({ date, title, price, imageUrl }) {
     return (
         <div style={{ margin: "2em 0" }} >
             <WorkshopCardHeader date={date} title={title} />
-            <WorkshopCardBody price={price} title={title} image={image} />
+            <WorkshopCardBody price={price} title={title} imageUrl={imageUrl} />
         </div>
     );
 }

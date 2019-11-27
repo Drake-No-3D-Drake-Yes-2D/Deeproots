@@ -7,7 +7,6 @@ import {
 } from 'react-router-dom';
 
 import NavBar from './NavBar'
-import Background from './Background'
 
 import Home from './Home'
 import About from './About'
@@ -22,15 +21,6 @@ import Collabs from './Collabs'
 
 import Admin from './Admin'
 import Edit from './Edit'
-
-
-const workshopSampleData = [
-  { id: 1, price: 10, title: "Cork & Crate", date: "Wednesday, Nov 14", image: "workshopwide.png" },
-  { id: 2, price: 11, title: "Crok & Creat", date: "Thursday, Nov 15", image: "workshopwide.png" },
-  { id: 3, price: 12, title: "Corke & Crart", date: "Friday, Nov 16", image: "workshopwide.png" },
-  { id: 4, price: 14, title: "Corek & Kreat", date: "Saturday, Nov 17", image: "workshopwide.png" }
-];
-
 
 class RouteManager extends React.Component {
 
@@ -58,14 +48,14 @@ class RouteManager extends React.Component {
     return (
       <Router>
         <div>
-          <NavBar/>
+          <NavBar />
           <Switch>
             <Route path="/about">
               <About />
             </Route>
 
             <Route path="/Workshops">
-              <Workshops workshops={workshopSampleData} />
+              <Workshops />
             </Route>
 
             <Route path="/CLC">
@@ -97,11 +87,11 @@ class RouteManager extends React.Component {
             </Route>
 
             <Route path="/admin">
-              <Admin setAuth={this.setAuth.bind(this)}/>
+              <Admin setAuth={this.setAuth.bind(this)} />
             </Route>
 
             <Route path="/Edit">
-              <Edit isAuth={this.state.auth}/>
+              <Edit isAuth={this.state.auth} />
             </Route>
 
             <Route path="/Home">
