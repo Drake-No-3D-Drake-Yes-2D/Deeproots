@@ -47,22 +47,22 @@ exports.edit = function (req, res) {
         update.title = req.body.title;
     }
     if (req.body.description) {
-        listing.description = req.body.description;
+        update.description = req.body.description;
     }
     if (req.body.location) {
-        listing.location = req.body.location;
+        update.location = req.body.location;
     }
     if (req.body.date) {
-        listing.date = req.body.date;
+        update.date = req.body.date;
     }
     if (req.body.imageUrl) {
-        listing.imageUrl = req.body.imageUrl;
+        update.imageUrl = req.body.imageUrl;
     }
     if (req.body.prices) {
-        listing.prices = req.body.prices;
+        update.prices = req.body.prices;
     }
     if (req.body.seats) {
-        listing.seats = req.body.seats;
+        update.seats = req.body.seats;
     }
     Workshop.findByIdAndUpdate(
         req.params.workshopId,

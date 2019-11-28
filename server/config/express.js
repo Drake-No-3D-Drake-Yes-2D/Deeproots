@@ -5,6 +5,7 @@ const path = require('path'),
     bodyParser = require('body-parser'),
     contentRouter = require('../routes/content.routes');
     workshopRouter = require('../routes/workshop.routes');
+    galleryRouter = require('../routes/gallery.routes');
 
 module.exports.init = () => {
     /*
@@ -42,6 +43,7 @@ module.exports.init = () => {
     // add routers
     app.use('/api/content', contentRouter);
     app.use('/api/workshop/', workshopRouter);
+    app.use('/api/gallery/', galleryRouter);
 
     if (process.env.NODE_ENV === 'production') {
         // Serve any static files
