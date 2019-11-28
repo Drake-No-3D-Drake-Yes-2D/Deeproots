@@ -1,4 +1,6 @@
 import React from 'react';
+import ReactMarkdown from 'react-markdown'
+
 import "./General.css";
 import api from '../api';
 
@@ -19,7 +21,7 @@ export default class About extends React.Component {
   render() {
     return (
       <div class="sideBar">
-        {this.state.content}
+        <ReactMarkdown source={this.state.content} />
       </div>
     );
   }
