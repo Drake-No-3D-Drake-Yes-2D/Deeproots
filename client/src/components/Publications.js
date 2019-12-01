@@ -1,10 +1,23 @@
 import React from 'react';
-import "./General.css";
+import { useState, useEffect } from 'react';
 
-export default function Publications(){
-  return (
-    <div className="background-Unscaled">
-      <h2 class="centerText">Publications 
-      </h2>
-  </div>);
+import "./General.css";
+import DefaultPage from './generic/DefaultPage';
+import ReactMarkdown from 'react-markdown';
+import { getContent } from '../api';
+
+
+export default function Publications() {
+
+    const [content, setContent] = useState('');
+
+    useEffect(() => {
+        getContent('publications', setContent)
+    }, [setContent]);
+
+    return (
+        <DefaultPage>
+            <ReactMarkdown source={content} />
+        </DefaultPage>
+    );
 }

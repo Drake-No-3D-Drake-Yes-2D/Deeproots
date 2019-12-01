@@ -1,10 +1,23 @@
 import React from 'react';
+import { useState, useEffect } from 'react';
+
 import "./General.css";
+import DefaultPage from './generic/DefaultPage';
+import ReactMarkdown from 'react-markdown';
+import { getContent } from '../api';
+
 
 export default function CLC() {
-  return <div className = "background-Unscaled">
-  <h2 class="centerText">
-          Creative Life Coaching
-  </h2>
-  </div>;
+
+    const [content, setContent] = useState('');
+
+    useEffect(() => {
+        getContent('clc', setContent)
+    }, [setContent]);
+
+    return (
+        <DefaultPage>
+            <ReactMarkdown source={content} />
+        </DefaultPage>
+    );
 }
