@@ -2,7 +2,7 @@ var mongoose = require('mongoose'),
     Schema = mongoose.Schema;
 
 var purchaseSchema = new Schema({
-    payment_uid: String,
+    payment_uid: { type: String, unique: true },
     active: Boolean,
     created_at: Date
 });

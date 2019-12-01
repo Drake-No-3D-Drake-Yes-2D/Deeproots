@@ -56,21 +56,21 @@ exports.edit = function (req, res) {
 
 exports.addPrice = function (req, res) {
     var price = new Price.ArtPrice(req.body);
-    price.save(function (err, price) {
+    price.save(function (err, nprice) {
         if (err) {
             res.status(500).send(err);
         } else {
             Art.findByIdAndUpdate(
                 req.params.artId,
                 {
-                    $addToSet: { prices: price.id }
+                    $addToSet: { prices: nprice.id }
                 },
                 { new: true },
-                function (err, art) {
+                function (err) {
                     if (err) {
                         return res.status(500).send(err);
                     } else {
-                        return res.json(art);
+                        return res.json(nprice);
                     }
                 }
             );

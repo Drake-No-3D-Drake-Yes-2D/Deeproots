@@ -17,7 +17,6 @@ function WorkshopCardImage({ image_url, title }) {
 }
 
 function WorkshopCardPrices({ prices }) {
-    console.log(prices);
     return prices.map(price => (
         <button style={{ margin: "0.25em" }}>{price.title} (${price.price})</button>
     ));
@@ -36,10 +35,8 @@ function WorkshopCardBody({ location, description, seats, prices }) {
         <div style={{ textAlign: "left" }}>
             <div>Location: {location}</div>
             <ReactMarkdown source={description} />
-            <div style={{ display: "flex" }}>
-                <div style={{ flex: "auto", textAlign: "left" }}><i>{seatsRemaining} Seats Remaining</i></div>
-                <div style={{ flex: "none" }}><WorkshopCardPrices prices={availablePrices} /></div>
-            </div>
+            <div style={{ textAlign: "left" }}><i>{seatsRemaining} Seats Remaining</i></div>
+            <div style={{ textAlign: "right" }}><WorkshopCardPrices prices={availablePrices} /></div>
         </div>
     );
 }

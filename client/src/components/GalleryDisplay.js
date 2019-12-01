@@ -1,45 +1,54 @@
 import React from 'react'
 import { useState, useEffect } from 'react';
 import ReactMarkdown from 'react-markdown'
-import {
-    useParams
-} from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 
 import "./General.css";
-import api from '../api';
+import { getDataThen } from '../api';
+import DefaultPage from './generic/DefaultPage';
 
-function ArtCard(props) {
-    return (<div>"lol"</div>);
-}
-
-function ArtList(props) {
-    return props.art.map(x =>
-        <ArtCard {...x} />
+function ArtImage({ image_url, title }) {
+    return (
+        <img style={{ maxWidth: "100%", maxHeight: "100%", margin: "0.5em" }} src={image_url} alt={title} />
     );
 }
 
-async function getHeader(category, setHeader) {
-    setHeader((await api.get(`content/galleryCategory${category}`)).data);
+function ArtCard({ image_url, title, category, _id }) {
+    return (
+        <div style={{ margin: "1em 0", background: "", padding: "2em" }} id={`id_${_id}`}>
+            <ArtImage image_url={image_url} title={title} />
+            <Link to={{ pathname: `/Art/${_id}`, category: category }} >More Info & Purchase Options</Link>
+        </div >
+    );
 }
 
-async function getArt(category, setArt) {
-    setArt((await api.get(`gallery/categories/${category}`)).data);
+function ArtList({ art, category }) {
+    const activeArt = art.filter(x => x.active);
+    return activeArt.map(x =>
+        <ArtCard {...x} category={category} key={art._id} />
+    );
 }
 
-export default function GalleryDisplay() {
-    const [header, setHeader] = useState('');
-    const [art, setArt] = useState([]);
+export default function GalleryDisplay(props) {
+    const [gallery, setGallery] = useState('');
     let { category } = useParams();
 
     useEffect(() => {
-        getHeader(category, setHeader);
-        getArt(category, setArt);
-    }, [category, setHeader, setArt]);
+        getDataThen(`gallery/${category}`, setGallery, () => {
+            if (props.location.hash) {
+                let element = document.querySelector(props.location.hash);
+                if (element) {
+                    element.scrollIntoView()
+                }
+            }
+        });
+    }, [category, setGallery]);
 
     return (
-        <div>
-            <ReactMarkdown source={header} />
-            <ArtList art={art} />
-        </div>
+        <DefaultPage>
+            <h1>{gallery.title || ""}</h1>
+            <ReactMarkdown source={gallery.content || ""} />
+            <ArtList art={gallery.art || []} category={gallery.category || ""} />
+        </DefaultPage>
     );
 }

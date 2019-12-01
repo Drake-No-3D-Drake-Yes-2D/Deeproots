@@ -1,7 +1,5 @@
 const Gallery = require('../models/gallery.model.js')
 const Art = require('../models/art.model.js')
-const Price = require('../models/price.model.js')
-const Purchase = require('../models/purchase.model.js')
 
 exports.categories = function (req, res) {
     Gallery.find({})
@@ -15,7 +13,7 @@ exports.categories = function (req, res) {
 };
 
 exports.category = function (req, res) {
-    Gallery.find({ category: req.params.category })
+    Gallery.findOne({ category: req.params.category })
         .populate('art')
         .exec(function (err, category) {
             if (err) {
@@ -43,21 +41,21 @@ exports.upsertCategory = function (req, res) {
 
 exports.addArt = function (req, res) {
     var art = new Art(req.body);
-    art.save(function (err, art) {
+    art.save(function (err, nart) {
         if (err) {
             res.status(500).send(err);
         } else {
             Gallery.findOneAndUpdate(
                 { category: req.params.category },
                 {
-                    $addToSet: { art: art.id }
+                    $addToSet: { art: nart.id }
                 },
                 { new: true },
-                function (err, gallery) {
+                function (err) {
                     if (err) {
                         return res.status(500).send(err);
                     } else {
-                        return res.json(gallery);
+                        return res.json(nart);
                     }
                 }
             );
