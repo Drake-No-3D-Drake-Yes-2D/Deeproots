@@ -1,49 +1,35 @@
 import React from 'react';
+import { useState, useEffect } from 'react';
+import ReactMarkdown from 'react-markdown';
+
 import DefaultPage from './generic/DefaultPage';
 import WorkshopCard from './WorkshopsCard';
-import api from '../api';
-
-function WorkshopHeader(props) {
-  return (
-    <h1>
-      Workshop Header
-    </h1>
-  );
-}
-
-function WorkshopBookYourOwn(props) {
-  return (
-    <button>Book Your Own Workshop</button>
-  );
-}
+import { getData, getContent } from '../api';
 
 function WorkshopsList(props) {
-  const prunedList = props.workshops; //TODO: date in future, is active
-  return prunedList.map(x =>
-    <WorkshopCard {...x} key={x.id} />
+  const lastWeek = new Date();
+  lastWeek.setDate(lastWeek.getDate() - 7); 
+  const currentWorkshops = props.workshops.filter(x => x.active && new Date(x.date) >= lastWeek);
+  console.log(currentWorkshops)
+  return currentWorkshops.map(x =>
+    <WorkshopCard {...x} key={x._id} />
   );
 }
 
-export default class Workshops extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      workshops: []
-    }
-  }
+export default function Workshops() {
 
-  async componentDidMount() {
-    const res = await api.get('workshop');
-    this.setState({ workshops: res.data });
-  }
+  const [header, setHeader] = useState('');
+  const [workshops, setWorkshops] = useState([]);
 
-  render() {
-    return (
-      <DefaultPage>
-        <WorkshopHeader />
-        <WorkshopBookYourOwn />
-        <WorkshopsList workshops={this.state.workshops} />
-      </DefaultPage>
-    );
-  }
+  useEffect(() => {
+    getContent('workshops', setHeader)
+    getData('workshop', setWorkshops)
+  }, [setHeader, setWorkshops]);
+
+  return (
+    <DefaultPage>
+      <ReactMarkdown source={header} />
+      <WorkshopsList workshops={workshops} />
+    </DefaultPage>
+  );
 }
