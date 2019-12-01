@@ -1,0 +1,72 @@
+[
+    {
+        "method": "post",
+        "endpoint": "content/about",
+        "content": {
+            "content": "# About\nAbout this site"
+        }
+    },
+    {
+        "method": "post",
+        "endpoint": "content/clc",
+        "content": {
+            "content": "# Creative Life Coaching\nSome Information about The Wonders of CLC (tm)"
+        }
+    },
+    {
+        "method": "post",
+        "endpoint": "content/collabs",
+        "content": {
+            "content": "# Collaborations\nThe Many People I Have Collab'd Upon"
+        }
+    },
+    {
+        "method": "post",
+        "endpoint": "content/contacts",
+        "content": {
+            "content": "# Contacts\nStep-By-Step Guide on How To Harrass Me"
+        }
+    },
+    {
+        "method": "post",
+        "endpoint": "content/demos",
+        "content": {
+            "content": "# Demos\nThis would be a wise place to try out the Markdown List Structure!!"
+        }
+    },
+    {
+        "method": "post",
+        "endpoint": "content/gallery",
+        "content": {
+            "content": "# Gallery\nHere Is My Art, For Your Viewing Entertainment"
+        }
+    },
+    {
+        "method": "post",
+        "endpoint": "content/home",
+        "content": {
+            "content": "![Deeproots Logo](https://deeproots2d.herokuapp.com/static/media/Logo.43abf951.png)\n# DEEPROOTS\nArts and Culture Creative LLC"
+        }
+    },
+    {
+        "method": "post",
+        "endpoint": "content/ocourses",
+        "content": {
+            "content": "# Online Courses\nBuy My Capitalism"
+        }
+    },
+    {
+        "method": "post",
+        "endpoint": "content/publications",
+        "content": {
+            "content": "# Publications\nI'm A Real Author!"
+        }
+    },
+    {
+        "method": "post",
+        "endpoint": "content/workshops",
+        "content": {
+            "content": "# Workshops\nHere Is The Going On's Around Town"
+        }
+    }
+]

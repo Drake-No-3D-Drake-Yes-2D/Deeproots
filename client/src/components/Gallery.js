@@ -17,7 +17,7 @@ function CategoriesList(props) {
 }
 
 async function getHeader(setHeader) {
-    setHeader((await api.get('content/galleryHeader')).data);
+    setHeader((await api.get('content/gallery')).data);
 }
 
 async function getCategories(setCategories) {

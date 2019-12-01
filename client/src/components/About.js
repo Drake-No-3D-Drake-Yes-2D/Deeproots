@@ -1,28 +1,23 @@
 import React from 'react';
-import ReactMarkdown from 'react-markdown'
+import { useState, useEffect } from 'react';
 
 import "./General.css";
-import api from '../api';
+import DefaultPage from './generic/DefaultPage';
+import ReactMarkdown from 'react-markdown';
+import { getContent } from '../api';
 
-export default class About extends React.Component {
 
-  constructor(props) {
-    super(props);
-    this.state = {
-      content: ''
-    }
-  }
+export default function About() {
 
-  async componentDidMount() {
-    const res = await api.get(`content/about`);
-    this.setState({ content: res.data });
-  }
+    const [content, setContent] = useState('');
 
-  render() {
+    useEffect(() => {
+        getContent('about', setContent)
+    }, [setContent]);
+
     return (
-      <div class="sideBar">
-        <ReactMarkdown source={this.state.content} />
-      </div>
+        <DefaultPage>
+            <ReactMarkdown source={content} />
+        </DefaultPage>
     );
-  }
 }

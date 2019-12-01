@@ -1,13 +1,23 @@
 import React from 'react';
-import logo from '../static/Logo.png';
-import '../App.css';
-import './General.css';
+import { useState, useEffect } from 'react';
+
+import "./General.css";
+import DefaultPage from './generic/DefaultPage';
+import ReactMarkdown from 'react-markdown';
+import { getContent } from '../api';
+
 
 export default function Home() {
-  return <div className = "background-Unscaled">
-    <img src={logo} className="App-logo" alt="logo"/>
-    <div className = "App-Title">
-      DEEPROOTS<br/>Arts and Culture Creative LLC
-    </div>
-  </div>
+
+    const [content, setContent] = useState('');
+
+    useEffect(() => {
+        getContent('home', setContent)
+    }, [setContent]);
+
+    return (
+        <DefaultPage>
+            <ReactMarkdown source={content} />
+        </DefaultPage>
+    );
 }
