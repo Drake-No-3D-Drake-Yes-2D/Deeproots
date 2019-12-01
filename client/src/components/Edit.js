@@ -1,12 +1,28 @@
 import React from 'react';
 import './General.css';
 
+import api from '../api';
+import ReactMarkdown from 'react-markdown';
+const http = require('http');
+
+var pages = ['about', 'workshops', 'clc', 'ocourses', 'gallery', 'demos', 'publications', 'contacts', 'collabs']
+
+
 class Edit extends React.Component {
+
+  async setContent(page) {
+    const contents = (await api.get(`content/${page}`));
+    this.setState({
+      content: contents
+    })
+  }
 
   constructor(props) {
     super(props);
     this.state = {
-      edit: 0
+      edit: 0,
+      content: '',
+      post: false
     }
   }
 
@@ -16,14 +32,43 @@ class Edit extends React.Component {
     })
   }
 
+  setContent(val) {
+    this.setState({
+      content: val
+    })
+  }
+
+  setPost(val) {
+    this.setState({
+      post: val
+    })
+  }
+
+
   handleClick(event) {
     const buttonID = event.target.getAttribute("id");
     this.setEdit(buttonID);
   }
 
+  handleContentSubmit(event) { // this is where I had the POST request before
+    this.setContent(this.refs.content.value)
+    this.setPost(true)
+  }
+
   render() {
+
     if (this.props.isAuth) {
       var comp = this.state.edit;
+      var page = pages[this.state.edit-1]
+      // if (page != undefined && this.state.post) {
+      //   try {
+      //     api.post('content/' + page, {"content": this.state.content}) // this doesn't work
+      //   } catch (err) {
+      //     alert(err)
+      //   }
+      //   this.setPost(false)
+      // }
+      // api.post('content/' + page, {"content": this.state.content}) // this works
       if (comp == 0) {
           return (
             <div className ="background-Unscaled">
@@ -45,6 +90,10 @@ class Edit extends React.Component {
         return (
           <div className ="background-Unscaled">
             <h2 class="centerText">Edit About</h2>
+            <form onSubmit={this.handleContentSubmit.bind(this)}>
+              <textarea ref="content"/><br />
+              <input type="submit" value="Submit" />
+            </form>
           </div>
         )
       }
