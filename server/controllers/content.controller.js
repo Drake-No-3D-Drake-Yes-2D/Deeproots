@@ -5,7 +5,7 @@ exports.latest = function (req, res) {
         .findOne({ 'title': req.params.title })
         .sort({ 'created_at': 'descending' })
         .exec(function (err, content) {
-            if (err) {
+            if (err || content === null) {
                 res.status(404).send(err);
             } else {
                 res.send(content.content)

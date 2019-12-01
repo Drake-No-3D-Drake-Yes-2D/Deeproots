@@ -1,18 +1,13 @@
 var mongoose = require('mongoose'),
-    Schema = mongoose.Schema;
+    Schema = mongoose.Schema,
+    ObjectId = mongoose.Schema.Types.ObjectId;
 
 var gallerySchema = new Schema({
-    title: String,
-    artist: String,
     category: String,
-    imageUrl: String,
-    originalPrice: Number,
-    originalActive: Boolean,
-    prices: [{
-        title: String,
-        price: Number
-    }],
-    active: Boolean,
+    title: String,
+    description: String,
+    content: String,
+    art: [{ type : ObjectId, ref: 'Art' }],
     created_at: Date
 });
 

@@ -2,25 +2,22 @@ var mongoose = require('mongoose'),
     Schema = mongoose.Schema,
     ObjectId = mongoose.Schema.Types.ObjectId;
 
-var workshopSchema = new Schema({
+var artSchema = new Schema({
     title: String,
-    description: String,
-    location: String,
-    date: Date,
+    artist: String,
     image_url: String,
     prices: [{ type : ObjectId, ref: 'Price' }],
-    seats: Number,
     active: Boolean,
     created_at: Date
 });
 
-workshopSchema.pre('save', function (next) {
+artSchema.pre('save', function (next) {
     if (!this.created_at) {
         this.created_at = new Date();
     }
     next();
 });
 
-var Workshop = mongoose.model('Workshop', workshopSchema);
+var Art = mongoose.model('Art', artSchema);
 
-module.exports = Workshop;
+module.exports = Art;
