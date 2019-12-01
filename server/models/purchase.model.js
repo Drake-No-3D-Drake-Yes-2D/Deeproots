@@ -14,6 +14,6 @@ purchaseSchema.pre('save', function (next) {
     next();
 });
 
-var Purchase = mongoose.model('Purcahse', purchaseSchema);
+var Purchase = mongoose.model('Purchase', purchaseSchema);
 
 module.exports = Purchase;
