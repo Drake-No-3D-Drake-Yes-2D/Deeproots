@@ -26,7 +26,7 @@ class NavBar extends React.Component {
         <a className="icon" onClick={() => {
           this.setState({ toggled: !this.state.toggled });
         }}>
-          <i class="fa fa-bars"></i>
+          <i className="fa fa-bars"></i>
         </a>
 
       </div>

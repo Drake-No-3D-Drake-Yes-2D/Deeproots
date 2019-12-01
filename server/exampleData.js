@@ -5,7 +5,7 @@
 var fs = require('fs'),
     axios = require('axios');
 
-const url = "http://localhost:5000/api/"; //SET THIS TO THE ENVIRONMENT YOU WANT TO WRITE TO!
+const url = "http://deeproots2dtest.herokuapp.com/api/"; //SET THIS TO THE ENVIRONMENT YOU WANT TO WRITE TO!
 
 fs.readFile('exampleData.json', 'utf8', function (err, data) {
 

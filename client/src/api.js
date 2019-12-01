@@ -10,3 +10,8 @@ export async function getContent(content, setContent) {
   const contents = (await api.get(`content/${content}`)).data;
   setContent(contents);
 }
+
+export async function getData(endpoint, setData) {
+  const data = (await api.get(`${endpoint}`)).data;
+  setData(data);
+}
