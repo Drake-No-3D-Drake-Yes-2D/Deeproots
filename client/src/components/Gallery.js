@@ -1,13 +1,20 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
 import ReactMarkdown from 'react-markdown';
+import { Link } from 'react-router-dom';
 
 import "./General.css";
-import api from '../api';
+import { getContent, getData } from '../api';
 import DefaultPage from './generic/DefaultPage';
 
-function GalleryCategory(props) {
-    return (<div>{props.title}: {props.content}</div>);
+function GalleryCategory({ category, title, description }) {
+    return (
+        <div style={{ margin: "2em 0", background: "white", padding: "2em", border: "0.5em solid black" }} >
+            <h2>{title}</h2>
+            <ReactMarkdown source={description} />
+            <Link to={`/gallery/${category}`}>See This Gallery</Link>
+        </div>
+    );
 }
 
 function CategoriesList(props) {
@@ -16,23 +23,13 @@ function CategoriesList(props) {
     );
 }
 
-async function getHeader(setHeader) {
-    setHeader((await api.get('content/gallery')).data);
-}
-
-async function getCategories(setCategories) {
-
-    const categories = (await api.get('gallery')).data;
-    setCategories(categories);
-}
-
 export default function Gallery() {
     const [header, setHeader] = useState('');
     const [categories, setCategories] = useState([]);
 
     useEffect(() => {
-        getHeader(setHeader);
-        getCategories(setCategories);
+        getContent('gallery', setHeader);
+        getData('gallery', setCategories);
     }, [setHeader, setCategories]);
 
     return (

@@ -11,6 +11,7 @@ exports.all = function (req, res) {
                 model: Purchase
             }
         })
+        .sort('date')
         .exec(function (err, workshops) {
             if (err) {
                 res.status(404).send(err);
@@ -67,21 +68,21 @@ exports.edit = function (req, res) {
 exports.addPrice = function (req, res) {
 
     var price = new Price.WorkshopPrice(req.body);
-    price.save(function (err, price) {
+    price.save(function (err, nprice) {
         if (err) {
             res.status(500).send(err);
         } else {
             Workshop.findByIdAndUpdate(
                 req.params.workshopId,
                 {
-                    $addToSet: { prices: price.id }
+                    $addToSet: { prices: nprice.id }
                 },
                 { new: true },
-                function (err, workshop) {
+                function (err) {
                     if (err) {
                         return res.status(500).send(err);
                     } else {
-                        return res.json(workshop);
+                        return res.json(nprice);
                     }
                 }
             );

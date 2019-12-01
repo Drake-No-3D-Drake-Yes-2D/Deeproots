@@ -15,3 +15,8 @@ export async function getData(endpoint, setData) {
   const data = (await api.get(`${endpoint}`)).data;
   setData(data);
 }
+
+export async function getDataThen(endpoint, setData, callback) {
+  await getData(endpoint, setData)
+  callback();
+}

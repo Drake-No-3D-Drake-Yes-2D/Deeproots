@@ -9,8 +9,7 @@ import { getData, getContent } from '../api';
 function WorkshopsList(props) {
   const lastWeek = new Date();
   lastWeek.setDate(lastWeek.getDate() - 7); 
-  const currentWorkshops = props.workshops.filter(x => x.active && new Date(x.date) >= lastWeek);
-  console.log(currentWorkshops)
+  const currentWorkshops = props.workshops.filter(x => x.active && new Date(x.date) >= lastWeek)
   return currentWorkshops.map(x =>
     <WorkshopCard {...x} key={x._id} />
   );

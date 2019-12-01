@@ -41,21 +41,21 @@ exports.edit = function (req, res) {
 
 exports.addPurchase = function (req, res) {
     var purchase = new Purchase(req.body);
-    purchase.save(function (err, purchase) {
+    purchase.save(function (err, npurchase) {
         if (err) {
             res.status(500).send(err);
         } else {
             Price.findByIdAndUpdate(
                 req.params.priceId,
                 {
-                    $addToSet: { purchases: purchase.id }
+                    $addToSet: { purchases: npurchase.id }
                 },
                 { new: true },
-                function (err, price) {
+                function (err) {
                     if (err) {
                         return res.status(500).send(err);
                     } else {
-                        return res.json(price);
+                        return res.json(npurchase);
                     }
                 }
             );

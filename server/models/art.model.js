@@ -7,6 +7,7 @@ var artSchema = new Schema({
     artist: String,
     image_url: String,
     prices: [{ type : ObjectId, ref: 'Price' }],
+    has_original: Boolean,
     active: Boolean,
     created_at: Date
 });

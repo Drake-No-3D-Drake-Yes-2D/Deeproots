@@ -68,5 +68,522 @@
         "content": {
             "content": "# Workshops\nHere Is The Going On's Around Town"
         }
+    },
+    {
+        "method": "post",
+        "endpoint": "content/artInfo",
+        "content": {
+            "content": "We offer three purchase options, The original is .., a high quality glicie print.. etc.."
+        }
+    },
+    {
+        "method": "put",
+        "endpoint": "gallery/cat1",
+        "content": {
+            "title": "Has Content",
+            "description": "Don't bother chcking the others",
+            "content": "A long arduous description of the many trials and tribulaions\nTo begin we must first start at the beginning of time..\nAnd whatever else goes with this collection"
+        }
+    },
+    {
+        "method": "put",
+        "endpoint": "gallery/cat2",
+        "content": {
+            "title": "The Second Collection",
+            "description": "A fine arrangment of art, best paired with merlot",
+            "content": "A long arduous description of the many trials and tribulaions\nTo begin we must first start at the beginning of time..\nAnd whatever else goes with this collection"
+        }
+    },
+    {
+        "method": "put",
+        "endpoint": "gallery/cat3",
+        "content": {
+            "title": "AHA! The Trifecta",
+            "description": "A fine arrangment of art, best paired with merlot",
+            "content": "A long arduous description of the many trials and tribulaions\nTo begin we must first start at the beginning of time..\nAnd whatever else goes with this collection"
+        }
+    },
+    {
+        "method": "put",
+        "endpoint": "gallery/cat4",
+        "content": {
+            "title": "Yet Another Collection of Fine Art",
+            "description": "A fine arrangment of art, best paired with merlot",
+            "content": "A long arduous description of the many trials and tribulaions\nTo begin we must first start at the beginning of time..\nAnd whatever else goes with this collection"
+        }
+    },
+    {
+        "method": "put",
+        "endpoint": "gallery/differentUrlSlug",
+        "content": {
+            "title": "More Art. Ho Hum.",
+            "description": "A fine arrangment of art, best paired with merlot",
+            "content": "A long arduous description of the many trials and tribulaions\nTo begin we must first start at the beginning of time..\nAnd whatever else goes with this collection"
+        }
+    },
+    {
+        "method": "put",
+        "endpoint": "gallery/thematic",
+        "content": {
+            "title": "This Is It.",
+            "description": "At long last, you are done. go home.",
+            "content": "A long arduous description of the many trials and tribulaions\nTo begin we must first start at the beginning of time..\nAnd whatever else goes with this collection"
+        }
+    },
+    {
+        "method": "post",
+        "endpoint": "gallery/cat1/art",
+        "key": "art1",
+        "content": {
+            "title": "Has Original",
+            "artist": "Hemmingway",
+            "image_url": "https://static.boredpanda.com/blog/wp-content/uploads/2017/02/IMG_20170205_220039_508-58a0129a23ada__880.jpg",
+            "has_original": true,
+            "active": true
+        }
+    },
+    {
+        "method": "post",
+        "endpoint": "gallery/cat1/art",
+        "key": "art2",
+        "content": {
+            "title": "Original Sold",
+            "artist": "Hemmingway",
+            "image_url": "https://static.boredpanda.com/blog/wp-content/uploads/2017/02/IMG_20170205_220039_508-58a0129a23ada__880.jpg",
+            "has_original": true,
+            "active": true
+        }
+    },
+    {
+        "method": "post",
+        "endpoint": "gallery/cat1/art",
+        "key": "art3",
+        "content": {
+            "title": "No Original",
+            "artist": "Hemmingway",
+            "image_url": "https://static.boredpanda.com/blog/wp-content/uploads/2017/02/IMG_20170205_220039_508-58a0129a23ada__880.jpg",
+            "has_original": false,
+            "active": true
+        }
+    },
+    {
+        "method": "post",
+        "endpoint": "gallery/cat1/art",
+        "content": {
+            "title": "Inactive",
+            "artist": "Hemmingway",
+            "image_url": "https://static.boredpanda.com/blog/wp-content/uploads/2017/02/IMG_20170205_220039_508-58a0129a23ada__880.jpg",
+            "has_original": true,
+            "active": false
+        }
+    },
+    {
+        "method": "post",
+        "endpoint": "gallery/cat1/art",
+        "key": "art5",
+        "content": {
+            "title": "Original Bought But Returned",
+            "artist": "Hemmingway",
+            "image_url": "https://static.boredpanda.com/blog/wp-content/uploads/2017/02/IMG_20170205_220039_508-58a0129a23ada__880.jpg",
+            "has_original": true,
+            "active": true
+        }
+    },
+    {
+        "method": "post",
+        "endpoint": "gallery/cat1/art",
+        "key": "art6",
+        "content": {
+            "title": "Many Prices",
+            "artist": "Hemmingway",
+            "image_url": "https://static.boredpanda.com/blog/wp-content/uploads/2017/02/IMG_20170205_220039_508-58a0129a23ada__880.jpg",
+            "has_original": true,
+            "active": true
+        }
+    },
+    {
+        "method": "post",
+        "endpoint": "art/:art1/prices/",
+        "content": {
+            "title": "Original",
+            "price": 100,
+            "active": true,
+            "original": true
+        }
+    },
+    {
+        "method": "post",
+        "endpoint": "art/:art1/prices/",
+        "content": {
+            "title": "Regular",
+            "price": 10,
+            "active": true,
+            "original": false
+        }
+    },
+    {
+        "method": "post",
+        "endpoint": "art/:art1/prices/",
+        "content": {
+            "title": "Inactive",
+            "price": 100,
+            "active": false,
+            "original": false
+        }
+    },
+    {
+        "method": "post",
+        "endpoint": "art/:art2/prices/",
+        "key": "price1",
+        "content": {
+            "title": "Original",
+            "price": 100,
+            "active": true,
+            "original": true
+        }
+    },
+    {
+        "method": "post",
+        "endpoint": "art/:art2/prices/",
+        "content": {
+            "title": "Regular",
+            "price": 10,
+            "active": true,
+            "original": false
+        }
+    },
+    {
+        "method": "post",
+        "endpoint": "art/:art3/prices/",
+        "content": {
+            "title": "Original",
+            "price": 100,
+            "active": true,
+            "original": true
+        }
+    },
+    {
+        "method": "post",
+        "endpoint": "art/:art3/prices/",
+        "content": {
+            "title": "Regular",
+            "price": 10,
+            "active": true,
+            "original": false
+        }
+    },
+    {
+        "method": "post",
+        "endpoint": "art/:art5/prices/",
+        "key": "price2",
+        "content": {
+            "title": "Original",
+            "price": 100,
+            "active": true,
+            "original": true
+        }
+    },
+    {
+        "method": "post",
+        "endpoint": "art/:art5/prices/",
+        "content": {
+            "title": "Regular",
+            "price": 10,
+            "active": true,
+            "original": false
+        }
+    },
+    {
+        "method": "post",
+        "endpoint": "art/:art6/prices/",
+        "content": {
+            "title": "Regular",
+            "price": 10,
+            "active": true,
+            "original": false
+        }
+    },
+    {
+        "method": "post",
+        "endpoint": "art/:art6/prices/",
+        "content": {
+            "title": "Regular",
+            "price": 10,
+            "active": true,
+            "original": false
+        }
+    },
+    {
+        "method": "post",
+        "endpoint": "art/:art6/prices/",
+        "content": {
+            "title": "Regular",
+            "price": 10,
+            "active": true,
+            "original": false
+        }
+    },
+    {
+        "method": "post",
+        "endpoint": "art/:art6/prices/",
+        "content": {
+            "title": "Regular",
+            "price": 10,
+            "active": true,
+            "original": false
+        }
+    },
+    {
+        "method": "post",
+        "endpoint": "art/:art6/prices/",
+        "content": {
+            "title": "Regular",
+            "price": 10,
+            "active": true,
+            "original": false
+        }
+    },
+    {
+        "method": "post",
+        "endpoint": "art/:art6/prices/",
+        "content": {
+            "title": "Regular",
+            "price": 10,
+            "active": true,
+            "original": false
+        }
+    },
+    {
+        "method": "post",
+        "endpoint": "art/:art6/prices/",
+        "content": {
+            "title": "Regular",
+            "price": 10,
+            "active": true,
+            "original": false
+        }
+    },
+    {
+        "method": "post",
+        "endpoint": "price/:price1/purchases",
+        "content": {
+            "payment_uid": "abc123",
+            "active": true
+        }
+    },
+    {
+        "method": "post",
+        "endpoint": "price/:price2/purchases",
+        "content": {
+            "payment_uid": "abc124",
+            "active": false
+        }
+    },
+    {
+        "method": "post",
+        "endpoint": "workshop",
+        "content": {
+            "title": "Future",
+            "description": "description of the workshop",
+            "location": "P. Sherman, 42 Wallably Way, Sydney",
+            "date": "2020-12-01T00:00:00.000Z",
+            "image_url": "https://image.jimcdn.com/app/cms/image/transf/none/path/s96d01652ab448409/backgroundarea/i59b8e6dda27628af/version/1460067540/image.jpg",
+            "seats": 20,
+            "active": true
+        }
+    },
+    {
+        "method": "post",
+        "endpoint": "workshop",
+        "content": {
+            "title": "Recent Past",
+            "description": "description of the workshop",
+            "location": "P. Sherman, 42 Wallably Way, Sydney",
+            "date": "2019-11-30T00:00:00.000Z",
+            "image_url": "https://image.jimcdn.com/app/cms/image/transf/none/path/s96d01652ab448409/backgroundarea/i59b8e6dda27628af/version/1460067540/image.jpg",
+            "seats": 20,
+            "active": true
+        }
+    },
+    {
+        "method": "post",
+        "endpoint": "workshop",
+        "content": {
+            "title": "Distant Past",
+            "description": "description of the workshop",
+            "location": "P. Sherman, 42 Wallably Way, Sydney",
+            "date": "2018-12-01T00:00:00.000Z",
+            "image_url": "https://image.jimcdn.com/app/cms/image/transf/none/path/s96d01652ab448409/backgroundarea/i59b8e6dda27628af/version/1460067540/image.jpg",
+            "seats": 20,
+            "active": true
+        }
+    },
+    {
+        "method": "post",
+        "endpoint": "workshop",
+        "content": {
+            "title": "Inactive",
+            "description": "description of the workshop",
+            "location": "P. Sherman, 42 Wallably Way, Sydney",
+            "date": "2020-12-01T00:00:00.000Z",
+            "image_url": "https://image.jimcdn.com/app/cms/image/transf/none/path/s96d01652ab448409/backgroundarea/i59b8e6dda27628af/version/1460067540/image.jpg",
+            "seats": 20,
+            "active": false
+        }
+    },
+    {
+        "method": "post",
+        "endpoint": "workshop",
+        "key": "workshop1",
+        "content": {
+            "title": "Bought Seats",
+            "description": "description of the workshop",
+            "location": "P. Sherman, 42 Wallably Way, Sydney",
+            "date": "2020-01-15T00:00:00.000Z",
+            "image_url": "https://image.jimcdn.com/app/cms/image/transf/none/path/s96d01652ab448409/backgroundarea/i59b8e6dda27628af/version/1460067540/image.jpg",
+            "seats": 20,
+            "active": true
+        }
+    },
+    {
+        "method": "post",
+        "endpoint": "workshop",
+        "key": "workshop2",
+        "content": {
+            "title": "Many Prices",
+            "description": "description of the workshop",
+            "location": "P. Sherman, 42 Wallably Way, Sydney",
+            "date": "2020-01-17T00:00:00.000Z",
+            "image_url": "https://image.jimcdn.com/app/cms/image/transf/none/path/s96d01652ab448409/backgroundarea/i59b8e6dda27628af/version/1460067540/image.jpg",
+            "seats": 20,
+            "active": true
+        }
+    },
+    {
+        "method": "post",
+        "endpoint": "workshop/:workshop1/prices",
+        "content": {
+            "title": "Regular",
+            "price": 20,
+            "active": "true",
+            "seats": 1
+        }
+    },
+    {
+        "method": "post",
+        "endpoint": "workshop/:workshop1/prices",
+        "key": "price3",
+        "content": {
+            "title": "Five Seats",
+            "price": 80,
+            "active": "true",
+            "seats": 5
+        }
+    },
+    {
+        "method": "post",
+        "endpoint": "workshop/:workshop1/prices",
+        "content": {
+            "title": "Thirty Seats",
+            "price": 200,
+            "active": "true",
+            "seats": 30
+        }
+    },
+    {
+        "method": "post",
+        "endpoint": "workshop/:workshop1/prices",
+        "content": {
+            "title": "Inactive",
+            "price": 2,
+            "active": "false",
+            "seats": 1
+        }
+    },
+    {
+        "method": "post",
+        "endpoint": "workshop/:workshop2/prices",
+        "content": {
+            "title": "Regular",
+            "price": 20,
+            "active": "true",
+            "seats": 1
+        }
+    },
+    {
+        "method": "post",
+        "endpoint": "workshop/:workshop2/prices",
+        "content": {
+            "title": "Regular",
+            "price": 20,
+            "active": "true",
+            "seats": 1
+        }
+    },
+    {
+        "method": "post",
+        "endpoint": "workshop/:workshop2/prices",
+        "content": {
+            "title": "Regular",
+            "price": 20,
+            "active": "true",
+            "seats": 1
+        }
+    },
+    {
+        "method": "post",
+        "endpoint": "workshop/:workshop2/prices",
+        "content": {
+            "title": "Regular",
+            "price": 20,
+            "active": "true",
+            "seats": 1
+        }
+    },
+    {
+        "method": "post",
+        "endpoint": "workshop/:workshop2/prices",
+        "content": {
+            "title": "Regular",
+            "price": 20,
+            "active": "true",
+            "seats": 1
+        }
+    },
+    {
+        "method": "post",
+        "endpoint": "workshop/:workshop2/prices",
+        "content": {
+            "title": "Regular",
+            "price": 20,
+            "active": "true",
+            "seats": 1
+        }
+    },
+    {
+        "method": "post",
+        "endpoint": "workshop/:workshop2/prices",
+        "content": {
+            "title": "Regular",
+            "price": 20,
+            "active": "true",
+            "seats": 1
+        }
+    },
+    {
+        "method": "post",
+        "endpoint": "price/:price3/purchases",
+        "content": {
+            "payment_uid": "abc125",
+            "active": true
+        }
+    },
+    {
+        "method": "post",
+        "endpoint": "price/:price3/purchases",
+        "content": {
+            "payment_uid": "abc126",
+            "active": false
+        }
     }
 ]

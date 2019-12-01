@@ -15,6 +15,7 @@ import CLC from './CLC'
 import Ocourses from './Ocourses'
 import Gallery from './Gallery'
 import GalleryDisplay from './GalleryDisplay'
+import ArtDisplay from './ArtDisplay'
 import Demos from './Demos'
 import Publications from './Publications'
 import Contacts from './Contacts'
@@ -67,9 +68,9 @@ class RouteManager extends React.Component {
               <Ocourses />
             </Route>
 
-            <Route path="/Gallery/:category">
-              <GalleryDisplay />
-            </Route>
+            <Route path="/Gallery/:category" render={(props) => <GalleryDisplay {...props} />} />
+
+            <Route path="/Art/:artId" render={(props) => <ArtDisplay {...props} />} />
 
             <Route path="/Gallery">
               <Gallery />
