@@ -18,7 +18,8 @@ function WorkshopBookYourOwn(props) {
 }
 
 function WorkshopsList(props) {
-  return props.workshops.map(x =>
+  const prunedList = props.workshops; //TODO: date in future, is active
+  return prunedList.map(x =>
     <WorkshopCard {...x} key={x.id} />
   );
 }
@@ -32,7 +33,7 @@ export default class Workshops extends React.Component {
   }
 
   async componentDidMount() {
-    const res = await api.get(`workshop`);
+    const res = await api.get('workshop');
     this.setState({ workshops: res.data });
   }
 

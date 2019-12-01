@@ -6,6 +6,9 @@ const path = require('path'),
     contentRouter = require('../routes/content.routes');
     workshopRouter = require('../routes/workshop.routes');
     galleryRouter = require('../routes/gallery.routes');
+    artRouter = require('../routes/art.routes');
+    priceRouter = require('../routes/price.routes');
+    purchaseRouter = require('../routes/purchase.routes');
 
 module.exports.init = () => {
     /*
@@ -43,7 +46,10 @@ module.exports.init = () => {
     // add routers
     app.use('/api/content', contentRouter);
     app.use('/api/workshop/', workshopRouter);
+    app.use('/api/price/', priceRouter);
     app.use('/api/gallery/', galleryRouter);
+    app.use('/api/purchase/', purchaseRouter);
+    app.use('/api/art/', artRouter);
 
     if (process.env.NODE_ENV === 'production') {
         // Serve any static files

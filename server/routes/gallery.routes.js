@@ -2,18 +2,14 @@ const gallery = require('../controllers/gallery.controller.js'),
     express = require('express'),
     router = express.Router()
 
-router.route('/categories')
-    .get(gallery.categories)
+router.route('/')
+    .get(gallery.categories) //returns all categories
 
-router.route('/categories/:category')
-    .get(gallery.list)
+router.route('/:category')
+    .get(gallery.category) //returns a specific category
+    .put(gallery.upsertCategory) //creates or modifies a category
 
-router.route('/items')
-    .post(gallery.add)
-
-router.route('/items/:galleryId')
-    .put(gallery.edit)
-    .patch(gallery.buyOriginal)
-    .delete(gallery.markInactive)
+router.route('/:category/art')
+    .post(gallery.addArt) //create a new artwork in this category //returns a link to the artwork
 
 module.exports = router;
