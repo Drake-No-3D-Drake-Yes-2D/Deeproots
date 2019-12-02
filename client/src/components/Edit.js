@@ -51,8 +51,12 @@ class Edit extends React.Component {
   }
 
   handleContentSubmit(event) { // this is where I had the POST request before
+    event.preventDefault();
     this.setContent(this.refs.content.value)
     this.setPost(true)
+    var page = pages[this.state.edit-1]
+    api.post('content/' + page, {"content": this.refs.content.value})
+    this.refs.content.value = "";
   }
 
   render() {
