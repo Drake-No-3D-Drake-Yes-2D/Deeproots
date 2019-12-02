@@ -52,17 +52,6 @@ class Edit extends React.Component {
     this.setEdit(buttonID);
   }
 
-
-  handleContentSubmit(event) { // this is where I had the POST request before
-    event.preventDefault();
-    this.setContent(this.refs.content.value)
-    this.setPost(true)
-    var page = pages[this.state.edit-1]
-    api.post('content/' + page, {"content": this.refs.content.value})
-    this.refs.content.value = "";
-  }
-
-
   handleGallerySubmit(event) {
     event.preventDefault()
     const data = this.refs
@@ -83,7 +72,6 @@ class Edit extends React.Component {
         active: true
       }
       api.post('gallery/:'+data.artCat.value+'/art', art)
-    }
   }
 
   handleCoursesSubmit() {
@@ -113,8 +101,18 @@ class Edit extends React.Component {
       seats: data.seats.value,
       active: true
     }
+<<<<<<< HEAD
     api.post('workshop', workshop)
 }
+
+  handleContentSubmit(event) {
+    event.preventDefault();
+    this.setContent(this.refs.content.value)
+    this.setPost(true)
+    var page = pages[this.state.edit-1]
+    api.post('content/' + page, {"content": this.refs.content.value})
+    this.refs.content.value = "";
+  }
 
   render() {
 
