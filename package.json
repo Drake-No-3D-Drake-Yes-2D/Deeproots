@@ -30,7 +30,8 @@
     "morgan": "^1.9.1",
     "nodemon": "^1.18.10",
     "should": "^13.2.3",
-    "supertest": "^4.0.2"
+    "supertest": "^4.0.2",
+    "react-scripts": "3.3.0"
   },
   "homepage": "https://github.com/Drake-No-3D-Drake-Yes-2D/Deeproots#readme"
 }

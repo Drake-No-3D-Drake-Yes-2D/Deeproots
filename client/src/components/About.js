@@ -17,6 +17,7 @@ export default function About() {
 
     return (
         <DefaultPage>
+            <h2>About</h2>
             <ReactMarkdown source={content} />
         </DefaultPage>
     );

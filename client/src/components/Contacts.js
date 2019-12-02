@@ -17,6 +17,7 @@ export default function Contacts() {
 
     return (
         <DefaultPage>
+            <h3>Contacts</h3>
             <ReactMarkdown source={content} />
         </DefaultPage>
     );
