@@ -17,6 +17,7 @@ export default function Colabs() {
 
     return (
         <DefaultPage>
+            <h1>Collaborations</h1>
             <ReactMarkdown source={content} />
         </DefaultPage>
     );

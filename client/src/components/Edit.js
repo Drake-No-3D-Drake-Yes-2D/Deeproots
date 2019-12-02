@@ -52,26 +52,39 @@ class Edit extends React.Component {
     this.setEdit(buttonID);
   }
 
-  handleGallerySubmit(event) {
+  async handleGallerySubmit(event) {
     event.preventDefault()
     const data = this.refs
     if (data.cat.value != '') {
       var gallery = {
-        category: data.cat.value,
         title: data.catTitle.value,
         description: data.catDesc.value,
         content: ''
       }
-      api.put('gallery/:'+data.cat.value, gallery)
+      try {
+        api.put('gallery/'+data.cat.value, gallery)
+      } catch (err) {
+        console.log(err)
+      }
     } else if (data.artTitle.value != '') {
       var art = {
         title: data.artTitle.value,
         artist: data.artist.value,
         image_url: data.img.value,
-        has_original: false,
+        has_original: data.orig.checked,
         active: true
       }
-      api.post('gallery/:'+data.artCat.value+'/art', art)
+      var resp = await api.post('gallery/'+data.artCat.value+'/art', art)
+      let artId = resp.data._id;
+      var price = {
+        title: data.artPriceTitle.value,
+        price: data.artPrice.value,
+        original: data.orig.checked,
+        active: true
+      }
+      api.post('gallery/'+artId+'/prices', price)
+      alert("Art created")
+    }
   }
 
   handleCoursesSubmit() {
@@ -88,7 +101,7 @@ class Edit extends React.Component {
     }
   }
 
-  handleWorkshopsSubmit(event) {
+  async handleWorkshopsSubmit(event) {
     const img = "https://image.jimcdn.com/app/cms/image/transf/none/path/s96d01652ab448409/backgroundarea/i59b8e6dda27628af/version/1460067540/image.jpg"
     event.preventDefault()
     const data = this.refs
@@ -101,9 +114,20 @@ class Edit extends React.Component {
       seats: data.seats.value,
       active: true
     }
-<<<<<<< HEAD
-    api.post('workshop', workshop)
-}
+    var resp = await api.post('workshop', workshop)
+    let workshopId = resp.data._id;
+    var price = {
+      title: data.priceLabel.value,
+      price: data.price.value,
+      active: true
+    }
+    try {
+      api.post('workshop/'+workshopId+'/prices', price)
+    } catch (err) {
+      console.log(err)
+    }
+    alert("Workshop created")
+  }
 
   handleContentSubmit(event) {
     event.preventDefault();
@@ -170,6 +194,12 @@ class Edit extends React.Component {
                 <label>Seats:
                   <input type="text" ref="seats" /><br />
                 </label>
+                <label>Price:
+                  <input type="text" ref="price" /><br />
+                </label>
+                <label>Price Label:
+                  <input type="text" ref="priceLabel" /><br />
+                </label>
               <input type="submit" value="Submit" />
             </form>
           </div>
@@ -234,6 +264,15 @@ class Edit extends React.Component {
                 </label>
                 <label>Category:
                   <input type="text" ref="artCat"/><br />
+                </label>
+                <label>Original:
+                  <input type="checkbox" defaultChecked={false} ref='orig'/><br />
+                </label>
+                <label>Price:
+                  <input type="text" ref="artPrice"/><br />
+                </label>
+                <label>Price Title:
+                  <input type="text" ref="artPriceTitle"/><br />
                 </label>
               <input type="submit" value="Submit" />
             </form>

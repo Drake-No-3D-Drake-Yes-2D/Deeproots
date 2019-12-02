@@ -17,6 +17,7 @@ export default function Publications() {
 
     return (
         <DefaultPage>
+        <h1>Publications</h1>
             <ReactMarkdown source={content} />
         </DefaultPage>
     );
