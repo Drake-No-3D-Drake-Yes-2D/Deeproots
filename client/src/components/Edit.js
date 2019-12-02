@@ -55,7 +55,7 @@ class Edit extends React.Component {
   handleGallerySubmit(event) {
     event.preventDefault()
     const data = this.refs
-    if (data.cat.value != '') {
+    if (data.cat.value !== '') {
       var gallery = {
         category: data.cat.value,
         title: data.catTitle.value,
@@ -63,7 +63,7 @@ class Edit extends React.Component {
         content: ''
       }
       api.put('gallery/:'+data.cat.value, gallery)
-    } else if (data.artTitle.value != '') {
+    } else if (data.artTitle.value !== '') {
       var art = {
         title: data.artTitle.value,
         artist: data.artist.value,
@@ -76,13 +76,13 @@ class Edit extends React.Component {
   }
 
   handleCoursesSubmit() {
-    if (this.refs.nameAdd.value != '') {
-      if (this.refs.link.value == '') {
+    if (this.refs.nameAdd.value !== '') {
+      if (this.refs.link.value === '') {
         alert("Missing course link")
       } else {
         alert("Added course \""+this.refs.nameAdd.value + "\"")
       }
-    } else if (this.refs.nameRem.value != '' ){
+    } else if (this.refs.nameRem.value !== '' ){
       alert("Removed course  \""+this.refs.nameRem.value + "\"")
     } else {
       alert("All required fields must be nonempty")
@@ -118,7 +118,7 @@ class Edit extends React.Component {
 
     if (this.props.isAuth) {
       var comp = this.state.edit;
-      if (comp == 0) {
+      if (comp === 0) {
           return (
             <div className ="background-Unscaled">
               <h2 class="centerText">Edit</h2>
@@ -135,7 +135,7 @@ class Edit extends React.Component {
             </div>
           )
       }
-      else if (comp == 1) {
+      else if (comp === '1') {
         return (
           <div className ="background-Unscaled">
             <h2 class="centerText">Edit About</h2>
@@ -146,7 +146,7 @@ class Edit extends React.Component {
           </div>
         )
       }
-      else if (comp == 2) {
+      else if (comp === '2') {
         return (
           <div className ="background-Unscaled">
             <h2 class="centerText">Edit Workshops</h2>
@@ -175,7 +175,7 @@ class Edit extends React.Component {
           </div>
         )
       }
-      else if (comp == 3) {
+      else if (comp === '3') {
         return (
           <div className ="background-Unscaled">
             <h2 class="centerText">Edit CLC</h2>
@@ -186,7 +186,7 @@ class Edit extends React.Component {
           </div>
         )
       }
-      else if (comp == 4) {
+      else if (comp === '4') {
         return (
           <div className ="background-Unscaled">
             <h2 class="centerText">Edit Online Courses</h2>
@@ -207,7 +207,7 @@ class Edit extends React.Component {
           </div>
         )
       }
-      else if (comp == 5) {
+      else if (comp === '5') {
         return (
           <div className ="background-Unscaled">
             <h2 class="centerText">Edit Gallery</h2>
@@ -240,7 +240,7 @@ class Edit extends React.Component {
           </div>
         )
       }
-      else if (comp == 6) {
+      else if (comp === '6') {
         return (
           <div className ="background-Unscaled">
             <h2 class="centerText">Edit Demos</h2>
@@ -253,7 +253,7 @@ class Edit extends React.Component {
           </div>
         )
       }
-      else if (comp == 7) {
+      else if (comp === '7') {
         return (
           <div className ="background-Unscaled">
             <h2 class="centerText">Edit Publications</h2>
@@ -266,7 +266,7 @@ class Edit extends React.Component {
           </div>
         )
       }
-      else if (comp == 8) {
+      else if (comp === '8') {
         return (
           <div className ="background-Unscaled">
             <h2 class="centerText">Edit Contacts</h2>
@@ -277,7 +277,7 @@ class Edit extends React.Component {
           </div>
         )
       }
-      else if (comp == 9) {
+      else if (comp === '9') {
         return (
           <div className ="background-Unscaled">
             <h2 class="centerText">Edit Collabs</h2>
