@@ -26,6 +26,7 @@ class Edit extends React.Component {
     }
   }
 
+
   setEdit(val) {
     this.setState({
       edit: val
@@ -45,30 +46,64 @@ class Edit extends React.Component {
   }
 
 
+
   handleClick(event) {
     const buttonID = event.target.getAttribute("id");
     this.setEdit(buttonID);
   }
 
-  handleContentSubmit(event) { // this is where I had the POST request before
-    this.setContent(this.refs.content.value)
-    this.setPost(true)
+  handleContentSubmit() {
+    //this.setContent(this.refs.content.value)
+    // try {
+    //   api.post('content/'+pages[this.state.edit-1], {"content": this.state.content}).then(alert("Submitted"))
+    // } catch (err) {
+    //   console.log(err)
+    // }
+    alert("Page updated")
+  }
+
+  handleGallerySubmit() {
+    if (this.refs.id.value != '') {
+      alert("Deleted artwork \""+this.refs.id.value + "\"")
+    } else if (this.refs.file.value != '' ){
+      alert("Artwork added")
+    } else {
+      alert("A field must be nonempty")
+    }
+  }
+
+  handleCoursesSubmit() {
+    if (this.refs.nameAdd.value != '') {
+      if (this.refs.link.value == '') {
+        alert("Missing course link")
+      } else {
+        alert("Added course \""+this.refs.nameAdd.value + "\"")
+      }
+    } else if (this.refs.nameRem.value != '' ){
+      alert("Removed course  \""+this.refs.nameRem.value + "\"")
+    } else {
+      alert("All required fields must be nonempty")
+    }
+  }
+
+  handleWorkshopsSubmit() {
+    if (this.refs.nameAdd.value != '') {
+      if (this.refs.date.value == '') {
+        alert("Missing date")
+      } else {
+        alert("Added workshop \""+this.refs.nameAdd.value + "\"")
+      }
+    } else if (this.refs.nameRem.value != '' ){
+      alert("Removed workshop  \""+this.refs.nameRem.value + "\"")
+    } else {
+      alert("All required fields must be nonempty")
+    }
   }
 
   render() {
 
     if (this.props.isAuth) {
       var comp = this.state.edit;
-      var page = pages[this.state.edit-1]
-      // if (page != undefined && this.state.post) {
-      //   try {
-      //     api.post('content/' + page, {"content": this.state.content}) // this doesn't work
-      //   } catch (err) {
-      //     alert(err)
-      //   }
-      //   this.setPost(false)
-      // }
-      // api.post('content/' + page, {"content": this.state.content}) // this works
       if (comp == 0) {
           return (
             <div className ="background-Unscaled">
@@ -101,6 +136,23 @@ class Edit extends React.Component {
         return (
           <div className ="background-Unscaled">
             <h2 class="centerText">Edit Workshops</h2>
+            <form onSubmit={this.handleWorkshopsSubmit.bind(this)}>
+              <h3>Add</h3><br />
+                <label>Workshop Name:
+                  <input type="text" ref="nameAdd" /><br />
+                </label>
+                <label>Description:
+                  <textarea ref="description" /><br />
+                </label>
+                <label>Date:
+                  <input type="text" ref="date" /><br />
+                </label>
+              <h3>Remove</h3><br />
+                <label>Workshop Name:
+                  <input type="text" ref="nameRem" /><br />
+                </label>
+              <input type="submit" value="Submit" />
+            </form>
           </div>
         )
       }
@@ -108,6 +160,10 @@ class Edit extends React.Component {
         return (
           <div className ="background-Unscaled">
             <h2 class="centerText">Edit CLC</h2>
+            <form onSubmit={this.handleContentSubmit.bind(this)}>
+              <textarea ref="content"/><br />
+              <input type="submit" value="Submit" />
+            </form>
           </div>
         )
       }
@@ -115,6 +171,20 @@ class Edit extends React.Component {
         return (
           <div className ="background-Unscaled">
             <h2 class="centerText">Edit Online Courses</h2>
+            <form onSubmit={this.handleCoursesSubmit.bind(this)}>
+              <h3>Add</h3><br />
+                <label>Course Name:
+                  <input type="text" ref="nameAdd" /><br />
+                </label>
+                <label>Link:
+                  <input type="text" ref="link" /><br />
+                </label>
+              <h3>Remove</h3><br />
+                <label>Course Name:
+                  <input type="text" ref="nameRem" /><br />
+                </label>
+              <input type="submit" value="Submit" />
+            </form>
           </div>
         )
       }
@@ -122,6 +192,13 @@ class Edit extends React.Component {
         return (
           <div className ="background-Unscaled">
             <h2 class="centerText">Edit Gallery</h2>
+            <form onSubmit={this.handleGallerySubmit.bind(this)}>
+              <h3>Add</h3><br />
+                <input type="file" ref="file"/><br />
+              <h3>Remove</h3><br />
+                <input type="text" ref="id"/><br />
+              <input type="submit" value="Submit" />
+            </form>
           </div>
         )
       }
@@ -129,6 +206,12 @@ class Edit extends React.Component {
         return (
           <div className ="background-Unscaled">
             <h2 class="centerText">Edit Demos</h2>
+            <form >
+              <label>Link:
+                <input type="text" ref="link"/><br />
+              </label>
+              <input type="submit" value="Submit" />
+            </form>
           </div>
         )
       }
@@ -136,6 +219,12 @@ class Edit extends React.Component {
         return (
           <div className ="background-Unscaled">
             <h2 class="centerText">Edit Publications</h2>
+            <form >
+              <label>Link:
+                <input type="text" ref="link"/><br />
+              </label>
+              <input type="submit" value="Submit" />
+            </form>
           </div>
         )
       }
@@ -143,6 +232,10 @@ class Edit extends React.Component {
         return (
           <div className ="background-Unscaled">
             <h2 class="centerText">Edit Contacts</h2>
+            <form onSubmit={this.handleContentSubmit.bind(this)}>
+              <textarea ref="content"/><br />
+              <input type="submit" value="Submit" />
+            </form>
           </div>
         )
       }
@@ -150,6 +243,12 @@ class Edit extends React.Component {
         return (
           <div className ="background-Unscaled">
             <h2 class="centerText">Edit Collabs</h2>
+            <form >
+              <label>Link:
+                <input type="text" ref="link"/><br />
+              </label>
+              <input type="submit" value="Submit" />
+            </form>
           </div>
         )
       }
