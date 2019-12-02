@@ -72,6 +72,7 @@ class Edit extends React.Component {
         active: true
       }
       api.post('gallery/:'+data.artCat.value+'/art', art)
+    }
   }
 
   handleCoursesSubmit() {
@@ -101,7 +102,6 @@ class Edit extends React.Component {
       seats: data.seats.value,
       active: true
     }
-<<<<<<< HEAD
     api.post('workshop', workshop)
 }
 
