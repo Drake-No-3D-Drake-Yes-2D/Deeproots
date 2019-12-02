@@ -1,5 +1,8 @@
 import React from "react"
 import ReactMarkdown from 'react-markdown';
+import PaymentModal from "./PaymentModal";
+import useModal from './useModal';
+import './PaymentModal.css'
 
 function WorkshopCardHeader({ title, date }) {
     return (
@@ -17,8 +20,17 @@ function WorkshopCardImage({ image_url, title }) {
 }
 
 function WorkshopCardPrices({ prices }) {
+    const {isShowing, toggle} = useModal();
     return prices.map(price => (
-        <button style={{ margin: "0.25em" }}>{price.title} (${price.price})</button>
+        <div>
+            <button style={{ margin: "0.25em" }} onClick={toggle}>{price.title} (${price.price})</button>
+            <PaymentModal
+                isShowing={isShowing}
+                hide={toggle}
+                price={price.price}
+                title={price.seats}
+            />
+        </div>
     ));
 }
 
@@ -40,6 +52,7 @@ function WorkshopCardBody({ location, description, seats, prices }) {
         </div>
     );
 }
+
 
 export default function WorkshopCard({ date, title, location, description, image_url, seats, prices }) {
     return (

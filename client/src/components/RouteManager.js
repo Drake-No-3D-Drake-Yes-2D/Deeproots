@@ -20,9 +20,8 @@ import Demos from './Demos'
 import Publications from './Publications'
 import Contacts from './Contacts'
 import Collabs from './Collabs'
-import Modal from "./Modal";
 import useModal from './useModal';
-import ModalTest from './ModalTest';
+import PaymentModal from './PaymentModal';
 
 import Admin from './Admin'
 import Edit from './Edit'
@@ -108,7 +107,7 @@ class RouteManager extends React.Component {
             </Route>
 
             <Route path="/poop">
-              <ModalTest />
+              <PaymentModal />
             </Route>
 
             <Redirect from="/" to="/Home" />
