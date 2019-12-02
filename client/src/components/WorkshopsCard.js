@@ -20,12 +20,12 @@ function WorkshopCardImage({ image_url, title }) {
 }
 
 function WorkshopCardPrices({ prices }) {
-    const {isShowing, toggle} = useModal();
+    const {shownModal, toggle} = useModal();
     return prices.map(price => (
         <div>
-            <button style={{ margin: "0.25em" }} onClick={toggle}>{price.title} (${price.price})</button>
+            <button style={{ margin: "0.25em" }} onClick={() => toggle(price._id)}>{price.title} (${price.price})</button>
             <PaymentModal
-                isShowing={isShowing}
+                isShowing={shownModal === price._id}
                 hide={toggle}
                 price={price.price}
                 title={price.seats}
