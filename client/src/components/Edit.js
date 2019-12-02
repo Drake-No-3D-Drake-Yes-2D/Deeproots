@@ -60,15 +60,29 @@ class Edit extends React.Component {
     var page = pages[this.state.edit-1]
     api.post('content/' + page, {"content": this.refs.content.value})
     this.refs.content.value = "";
+  }
 
 
-  handleGallerySubmit() {
-    if (this.refs.id.value != '') {
-      alert("Deleted artwork \""+this.refs.id.value + "\"")
-    } else if (this.refs.file.value != '' ){
-      alert("Artwork added")
-    } else {
-      alert("A field must be nonempty")
+  handleGallerySubmit(event) {
+    event.preventDefault()
+    const data = this.refs
+    if (data.cat.value != '') {
+      var gallery = {
+        category: data.cat.value,
+        title: data.catTitle.value,
+        description: data.catDesc.value,
+        content: ''
+      }
+      api.put('gallery/:'+data.cat.value, gallery)
+    } else if (data.artTitle.value != '') {
+      var art = {
+        title: data.artTitle.value,
+        artist: data.artist.value,
+        image_url: data.img.value,
+        has_original: false,
+        active: true
+      }
+      api.post('gallery/:'+data.artCat.value+'/art', art)
     }
   }
 
@@ -90,7 +104,6 @@ class Edit extends React.Component {
     const img = "https://image.jimcdn.com/app/cms/image/transf/none/path/s96d01652ab448409/backgroundarea/i59b8e6dda27628af/version/1460067540/image.jpg"
     event.preventDefault()
     const data = this.refs
-    //var options = data.prices.value.val().split('\n')
     var workshop = {
       title: data.title.value,
       description: data.description.value,
@@ -100,6 +113,7 @@ class Edit extends React.Component {
       seats: data.seats.value,
       active: true
     }
+    api.post('workshop', workshop)
 }
 
   render() {
@@ -201,9 +215,28 @@ class Edit extends React.Component {
             <h2 class="centerText">Edit Gallery</h2>
             <form onSubmit={this.handleGallerySubmit.bind(this)}>
               <h3>Add Category</h3><br />
-                <input type="text" ref="cat"/><br />
+                <label>Category:
+                  <input type="text" ref="cat"/><br />
+                </label>
+                <label>Title:
+                  <input type="text" ref="catTitle"/><br />
+                </label>
+                <label>Description:
+                  <input type="text" ref="catDesc"/><br />
+                </label>
               <h3>Add Art</h3><br />
-                <input type="text" ref="cat"/><br />
+                <label>Title:
+                  <input type="text" ref="artTitle"/><br />
+                </label>
+                <label>Artist:
+                  <input type="text" ref="artist"/><br />
+                </label>
+                <label>Image URL:
+                  <input type="text" ref="img"/><br />
+                </label>
+                <label>Category:
+                  <input type="text" ref="artCat"/><br />
+                </label>
               <input type="submit" value="Submit" />
             </form>
           </div>
