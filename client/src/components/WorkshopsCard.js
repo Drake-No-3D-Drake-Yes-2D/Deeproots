@@ -23,7 +23,7 @@ function WorkshopCardPrices({ prices }) {
 }
 
 function calcSeatsRemaining(seats, prices) {
-    return seats - prices.reduce((acc, x) => acc + (x.seats * x.purchases.filter(y => y.active).length), 0)
+    return seats - prices.reduce((acc, x) => acc + ((x.seats || 1) * x.purchases.filter(y => y.active).length), 0)
 }
 
 function WorkshopCardBody({ location, description, seats, prices }) {
