@@ -76,20 +76,24 @@ class Edit extends React.Component {
     }
   }
 
-  handleWorkshopsSubmit() {
-    if (this.refs.nameAdd.value != '') {
-      if (this.refs.date.value == '') {
-        alert("Missing date")
-      } else {
-        alert("Added workshop \""+this.refs.nameAdd.value + "\"")
-      }
-    } else if (this.refs.nameRem.value != '' ){
-      alert("Removed workshop  \""+this.refs.nameRem.value + "\"")
-    } else {
-      alert("All required fields must be nonempty")
+  handleWorkshopsSubmit(event) {
+    const img = "https://image.jimcdn.com/app/cms/image/transf/none/path/s96d01652ab448409/backgroundarea/i59b8e6dda27628af/version/1460067540/image.jpg"
+    event.preventDefault()
+    const data = this.refs
+    //var options = data.prices.value.val().split('\n')
+    var workshop = {
+      title: data.title.value,
+      description: data.description.value,
+      location: data.loc.value,
+      date: new Date(data.date.value),
+      image_url: img,
+      seats: data.seats.value,
+      active: true
     }
 
-  handleContentSubmit(event) { // this is where I had the POST request before
+  }
+
+  handleContentSubmit(event) { 
     event.preventDefault();
     this.setContent(this.refs.content.value)
     this.setPost(true)
@@ -136,18 +140,23 @@ class Edit extends React.Component {
             <h2 class="centerText">Edit Workshops</h2>
             <form onSubmit={this.handleWorkshopsSubmit.bind(this)}>
               <h3>Add</h3><br />
-                <label>Workshop Name:
-                  <input type="text" ref="nameAdd" /><br />
+                <label>Workshop Title:
+                  <input type="text" ref="title" /><br />
                 </label>
                 <label>Description:
                   <textarea ref="description" /><br />
                 </label>
                 <label>Date:
-                  <input type="text" ref="date" /><br />
+                  <input type="date" ref="date" /><br />
                 </label>
-              <h3>Remove</h3><br />
-                <label>Workshop Name:
-                  <input type="text" ref="nameRem" /><br />
+                <label>Location:
+                  <input type="text" ref="loc" /><br />
+                </label>
+                <label>Image Link:
+                  <input type="text" ref="img" /><br />
+                </label>
+                <label>Seats:
+                  <input type="text" ref="seats" /><br />
                 </label>
               <input type="submit" value="Submit" />
             </form>
@@ -191,10 +200,10 @@ class Edit extends React.Component {
           <div className ="background-Unscaled">
             <h2 class="centerText">Edit Gallery</h2>
             <form onSubmit={this.handleGallerySubmit.bind(this)}>
-              <h3>Add</h3><br />
-                <input type="file" ref="file"/><br />
-              <h3>Remove</h3><br />
-                <input type="text" ref="id"/><br />
+              <h3>Add Category</h3><br />
+                <input type="text" ref="cat"/><br />
+              <h3>Add Art</h3><br />
+                <input type="text" ref="cat"/><br />
               <input type="submit" value="Submit" />
             </form>
           </div>
