@@ -3,6 +3,7 @@ import ReactMarkdown from 'react-markdown';
 import PaymentModal from "./PaymentModal";
 import useModal from './useModal';
 import './PaymentModal.css'
+import FormBox from './FormBox'
 
 function WorkshopCardHeader({ title, date }) {
     return (
@@ -49,7 +50,9 @@ function WorkshopCardBody({ location, description, seats, prices }) {
             <ReactMarkdown source={description} />
             <div style={{ textAlign: "left" }}><i>{seatsRemaining} Seats Remaining</i></div>
             <div style={{ textAlign: "right" }}><WorkshopCardPrices prices={availablePrices} /></div>
+            <React.Fragment> <FormBox /> </React.Fragment>
         </div>
+
     );
 }
 
