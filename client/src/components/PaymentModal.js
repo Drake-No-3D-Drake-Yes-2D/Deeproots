@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './PaymentModal.css'
+import PaymentInput from './PaymentInput' 
 
 const PaymentModal = ({ isShowing, hide, price, title}) => isShowing ? ReactDOM.createPortal(
   <React.Fragment>
@@ -13,14 +14,14 @@ const PaymentModal = ({ isShowing, hide, price, title}) => isShowing ? ReactDOM.
               <span aria-hidden="true">&times;</span>
             </button>
           </div>
-          <p>{price}</p>
-          <p>{title}</p>
+          <div style={{marginTop:"30%"}}>
+            <PaymentInput/>
+          </div>
           <div id="form-container">
             <div id="sq-card-number"></div>
               <div className="third" id="sq-expiration-date"></div>
               <div className="third" id="sq-cvv"></div>
             <div className="third" id="sq-postal-code"></div>
-            <button id="sq-creditcard" className="button-credit-card" onClick="onGetCardNonce(event)">Pay $1.00</button>
           </div> 
         </div>
       </div>
