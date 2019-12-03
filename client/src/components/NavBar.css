@@ -20,14 +20,12 @@
 /* Change the color of links on hover */
 .Nav-topnav a:hover {
   background-color: yellowgreen;
-  font-size: 20px;
   color: black;
 }
 
 /* Add a color to the active/current link */
 .Nav-topnav a.active {
   background-color: green;
-  font-size: 20px;
   color: white;
 }
 

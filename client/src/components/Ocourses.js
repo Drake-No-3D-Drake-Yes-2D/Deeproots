@@ -17,6 +17,7 @@ export default function OCourses() {
 
     return (
         <DefaultPage>
+            <h1>Online Courses</h1>
             <ReactMarkdown source={content} />
         </DefaultPage>
     );

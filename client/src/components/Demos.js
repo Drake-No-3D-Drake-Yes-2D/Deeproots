@@ -18,6 +18,7 @@ export default function Demos() {
     return (
         <DefaultPage>
             <ReactMarkdown source={content} />
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/J6bY8rJ-e6A" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         </DefaultPage>
     );
 }

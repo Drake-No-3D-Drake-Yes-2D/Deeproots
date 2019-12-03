@@ -17,6 +17,7 @@ export default function CLC() {
 
     return (
         <DefaultPage>
+            <h1>Creative Life Coaching</h1>
             <ReactMarkdown source={content} />
         </DefaultPage>
     );
