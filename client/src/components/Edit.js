@@ -298,10 +298,8 @@ class Edit extends React.Component {
         return (
           <div className ="background-Unscaled">
             <h2 class="centerText">Edit Publications</h2>
-            <form >
-              <label>Link:
-                <input type="text" ref="link"/><br />
-              </label>
+            <form onSubmit={this.handleContentSubmit.bind(this)}>
+              <textarea ref="content"/><br />
               <input type="submit" value="Submit" />
             </form>
           </div>
