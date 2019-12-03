@@ -55,36 +55,32 @@ class Edit extends React.Component {
   async handleGallerySubmit(event) {
     event.preventDefault()
     const data = this.refs
-    if (data.cat.value !== '') {
-      var gallery = {
-        title: data.catTitle.value,
-        description: data.catDesc.value,
-        content: ''
+    var art = {
+      title: data.artTitle.value,
+      artist: data.artist.value,
+      image_url: data.img.value,
+      has_original: data.orig.checked,
+      active: true
+    }
+    var resp = await api.post('gallery/'+data.artCat.value+'/art', art)
+    let artId = resp.data._id
+    var prices = data.prices.value.split("\n")
+    prices.forEach(element => {
+      var priceOption = element.split(",")
+      if (priceOption[0] === "Original") {
+        priceOption[2] = true;
+      } else {
+        priceOption[2] = false
       }
-      try {
-        api.put('gallery/'+data.cat.value, gallery)
-      } catch (err) {
-        console.log(err)
-      }
-    } else if (data.artTitle.value !== '') {
-      var art = {
-        title: data.artTitle.value,
-        artist: data.artist.value,
-        image_url: data.img.value,
-        has_original: data.orig.checked,
-        active: true
-      }
-      var resp = await api.post('gallery/'+data.artCat.value+'/art', art)
-      let artId = resp.data._id;
       var price = {
-        title: data.artPriceTitle.value,
-        price: data.artPrice.value,
-        original: data.orig.checked,
-        active: true
+        title: priceOption[0],
+        price: priceOption[1],
+        active: true,
+        original: priceOption[2]
       }
       api.post('art/'+artId+'/prices', price)
-      alert("Art created")
-    }
+    })
+    alert("Art created")
   }
 
   handleCoursesSubmit() {
@@ -102,7 +98,6 @@ class Edit extends React.Component {
   }
 
   async handleWorkshopsSubmit(event) {
-    const img = "https://image.jimcdn.com/app/cms/image/transf/none/path/s96d01652ab448409/backgroundarea/i59b8e6dda27628af/version/1460067540/image.jpg"
     event.preventDefault()
     const data = this.refs
     var workshop = {
@@ -110,23 +105,23 @@ class Edit extends React.Component {
       description: data.description.value,
       location: data.loc.value,
       date: new Date(data.date.value),
-      image_url: img,
+      image_url: data.img.value,
       seats: data.seats.value,
       active: true
     }
     var resp = await api.post('workshop', workshop)
     let workshopId = resp.data._id;
-    var price = {
-      title: data.priceLabel.value,
-      price: data.price.value,
-      active: true,
-      seats: 1
-    }
-    try {
+    var prices = data.prices.value.split("\n")
+    prices.forEach(element => {
+      var priceOption = element.split(",")
+      var price = {
+        title: priceOption[0],
+        price: priceOption[1],
+        active: true,
+        seats: priceOption[2]
+      }
       api.post('workshop/'+workshopId+'/prices', price)
-    } catch (err) {
-      console.log(err)
-    }
+    })
     alert("Workshop created")
   }
 
@@ -196,11 +191,8 @@ class Edit extends React.Component {
                 <label>Seats:
                   <input type="text" ref="seats" /><br />
                 </label>
-                <label>Price:
-                  <input type="text" ref="price" /><br />
-                </label>
-                <label>Price Label:
-                  <input type="text" ref="priceLabel" /><br />
+                <label>Prices:
+                  <textarea ref="prices" /><br />
                 </label>
               <input type="submit" value="Submit" />
             </form>
@@ -244,16 +236,6 @@ class Edit extends React.Component {
           <div className ="background-Unscaled">
             <h2 class="centerText">Edit Gallery</h2>
             <form onSubmit={this.handleGallerySubmit.bind(this)}>
-              <h3>Add Category</h3><br />
-                <label>Category:
-                  <input type="text" ref="cat"/><br />
-                </label>
-                <label>Title:
-                  <input type="text" ref="catTitle"/><br />
-                </label>
-                <label>Description:
-                  <input type="text" ref="catDesc"/><br />
-                </label>
               <h3>Add Art</h3><br />
                 <label>Title:
                   <input type="text" ref="artTitle"/><br />
@@ -270,11 +252,8 @@ class Edit extends React.Component {
                 <label>Original:
                   <input type="checkbox" defaultChecked={false} ref='orig'/><br />
                 </label>
-                <label>Price:
-                  <input type="text" ref="artPrice"/><br />
-                </label>
-                <label>Price Title:
-                  <input type="text" ref="artPriceTitle"/><br />
+                <label>Prices:
+                  <textarea ref="prices" /><br />
                 </label>
               <input type="submit" value="Submit" />
             </form>
@@ -298,10 +277,8 @@ class Edit extends React.Component {
         return (
           <div className ="background-Unscaled">
             <h2 class="centerText">Edit Publications</h2>
-            <form >
-              <label>Link:
-                <input type="text" ref="link"/><br />
-              </label>
+            <form onSubmit={this.handleContentSubmit.bind(this)}>
+              <textarea ref="content"/><br />
               <input type="submit" value="Submit" />
             </form>
           </div>
