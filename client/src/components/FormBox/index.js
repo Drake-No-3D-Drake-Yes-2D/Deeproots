@@ -3,7 +3,7 @@ import axios from 'axios'
 import './index.css'
 
 const GOOGLE_FORM_MESSAGE_ID = 'entry.2606285'
-const GOOGLE_FORM_ATTENDING_ID = 'entry.149813509'
+const GOOGLE_FORM_ATTENDING_ID = 'entry.1498135098'
 const CORS_PROXY = 'https://cors-escape.herokuapp.com/'
 const GOOGLE_FORM_ACTION = 'https://docs.google.com/forms/u/5/d/e/1FAIpQLSfBYrkGVJrlkgxuGVzzBTnGOCJpVEO4b8vhDNXEr4SAk8Ei7w/formResponse'
 
