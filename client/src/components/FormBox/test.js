@@ -1,13 +1,13 @@
 import React from 'react'
 import { shallow } from 'enzyme'
 import moxios from 'moxios'
-import ContactBox from '.'
+import FormBox from '.'
 
-describe('Contact Box', () => {
-  let contactBox
+describe('form Box', () => {
+  let formBox
 
   beforeEach(() => {
-    contactBox = shallow(<ContactBox />)
+    formBox = shallow(<FormBox />)
     moxios.install()
   })
 
@@ -16,64 +16,64 @@ describe('Contact Box', () => {
   })
 
   it('Renders correctly', () => {
-    expect(contactBox).toMatchSnapshot()
+    expect(formBox).toMatchSnapshot()
   })
 
   it('renders with the form hidden by default', () => {
-    expect(contactBox.find('form').length).toBe(0)
+    expect(formBox.find('form').length).toBe(0)
   })
 
-  it('renders with the contact button by default', () => {
-    expect(contactBox.find('#contact-button').length).toBe(1)
+  it('renders with the form button by default', () => {
+    expect(formBox.find('#form-button').length).toBe(1)
   })
 
-  it('shows form when the contact button is clicked ', () => {
-    contactBox.find('#contact-button').simulate('click')
+  it('shows form when the form button is clicked ', () => {
+    formBox.find('#form-button').simulate('click')
 
-    expect(contactBox.find('form').length).toBe(1)
+    expect(formBox.find('form').length).toBe(1)
   })
 
   it('hides form when the cancel button is clicked', () => {
-    contactBox.setState({showForm: true})
-    contactBox.find('#cancel-button').simulate('click')
+    formBox.setState({showForm: true})
+    formBox.find('#cancel-button').simulate('click')
 
-    expect(contactBox.find('form').length).toBe(0)
+    expect(formBox.find('form').length).toBe(0)
   })
 
-  it('shows contact button when the cancel button is clicked', () => {
-    contactBox.setState({showForm: true})
-    contactBox.find('#cancel-button').simulate('click')
+  it('shows form button when the cancel button is clicked', () => {
+    formBox.setState({showForm: true})
+    formBox.find('#cancel-button').simulate('click')
 
-    expect(contactBox.find('#contact-button').length).toBe(1)
+    expect(formBox.find('#form-button').length).toBe(1)
   })
 
   it('shows loading message after submitting form', () => {
-    contactBox.setState({showForm: true})
-    contactBox.find('form').simulate('submit', {
+    formBox.setState({showForm: true})
+    formBox.find('form').simulate('submit', {
       preventDefault: jest.fn()
     })
 
-    expect(contactBox.text()).toBe('Sending...')
+    expect(formBox.text()).toBe('Sending...')
   })
 
-  it('shows success message and contact button if the message is sent successfully', () => {
-    contactBox.setState({messageSent: true})
+  it('shows success message and form button if the message is sent successfully', () => {
+    formBox.setState({messageSent: true})
 
-    expect(contactBox.find('.success-message').length).toBe(1)
-    expect(contactBox.find('#return-button').length).toBe(1)
+    expect(formBox.find('.success-message').length).toBe(1)
+    expect(formBox.find('#return-button').length).toBe(1)
   })
 
-  it('displays contact button when the return button is clicked', () => {
-    contactBox.setState({messageSent: true})
-    contactBox.find('#return-button').simulate('click')
+  it('displays form button when the return button is clicked', () => {
+    formBox.setState({messageSent: true})
+    formBox.find('#return-button').simulate('click')
 
-    expect(contactBox.find('#contact-button').length).toBe(1)
+    expect(formBox.find('#form-button').length).toBe(1)
   })
 
   it('displays error message and return button when message is not sent', () => {
-    contactBox.setState({messageError: true})
+    formBox.setState({messageError: true})
 
-    expect(contactBox.find('.error-message').length).toBe(1)
-    expect(contactBox.find('#return-button').length).toBe(1)
+    expect(formBox.find('.error-message').length).toBe(1)
+    expect(formBox.find('#return-button').length).toBe(1)
   })
 })
