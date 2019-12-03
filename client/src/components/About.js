@@ -1,26 +1,24 @@
 import React from 'react';
+import { useState, useEffect } from 'react';
+
 import "./General.css";
+import DefaultPage from './generic/DefaultPage';
+import ReactMarkdown from 'react-markdown';
+import { getContent } from '../api';
+
 
 export default function About() {
-  return (
-    <div className = "background">
-      <div class = "sideBar">
-  		  <h2 class= "centerText">
-          About 
-          <br/>
-          Deeproots
-        </h2>
-          <p class= "centerText">
-          Placeholder Text, Placeholder Text, Placeholder Text <br/>
-          Placeholder Text, Placeholder Text, Placeholder Text <br/>
-          Placeholder Text, Placeholder Text, Placeholder Text <br/>
-          Placeholder Text, Placeholder Text, Placeholder Text <br/>
-          Placeholder Text, Placeholder Text, Placeholder Text <br/>
-          Placeholder Text, Placeholder Text, Placeholder Text <br/>
-          Placeholder Text, Placeholder Text, Placeholder Text <br/>
-          Placeholder Text, Placeholder Text, Placeholder Text <br/>
-          </p>
-      </div>
-    </div>
-  );
+
+    const [content, setContent] = useState('');
+
+    useEffect(() => {
+        getContent('about', setContent)
+    }, [setContent]);
+
+    return (
+        <DefaultPage>
+            <h1>About</h1>
+            <ReactMarkdown source={content} />
+        </DefaultPage>
+    );
 }

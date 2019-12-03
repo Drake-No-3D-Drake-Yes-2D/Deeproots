@@ -7,7 +7,6 @@ import {
 } from 'react-router-dom';
 
 import NavBar from './NavBar'
-import Background from './Background'
 
 import Home from './Home'
 import About from './About'
@@ -15,79 +14,112 @@ import Workshops from './Workshops'
 import CLC from './CLC'
 import Ocourses from './Ocourses'
 import Gallery from './Gallery'
+import GalleryDisplay from './GalleryDisplay'
+import ArtDisplay from './ArtDisplay'
 import Demos from './Demos'
 import Publications from './Publications'
 import Contacts from './Contacts'
 import Collabs from './Collabs'
+import useModal from './useModal';
+import PaymentModal from './PaymentModal';
 
 import Admin from './Admin'
 import Edit from './Edit'
 
+class RouteManager extends React.Component {
 
-const workshopSampleData = [
-  { id: 1, price: 10, title: "Cork & Crate", date: "Wednesday, Nov 14", image: "workshopwide.png" },
-  { id: 2, price: 11, title: "Crok & Creat", date: "Thursday, Nov 15", image: "workshopwide.png" },
-  { id: 3, price: 12, title: "Corke & Crart", date: "Friday, Nov 16", image: "workshopwide.png" },
-  { id: 4, price: 14, title: "Corek & Kreat", date: "Saturday, Nov 17", image: "workshopwide.png" }
-];
+  constructor(props) {
+    super(props);
+    this.state = {
+      auth: this.getAuth()
+    }
+
+  }
+
+  setAuth(val) {
+    this.setState({
+      auth: val
+    })
+    sessionStorage.setItem("auth", val);
+  }
+
+  getAuth() {
+    return sessionStorage.getItem("auth")
+  }
 
 
-export default function RouteManager() {
-  return (
-    <Router>
-      <div>
-        <NavBar/>
-        <Switch>
-          <Route path="/about">
-            <About />
-          </Route>
+  render() {
+    return (
+      <Router>
+        <div>
+          <NavBar />
+          <Switch>
+            <Route path="/about">
+              <About />
+            </Route>
 
-          <Route path="/Workshops">
-            <Workshops workshops={workshopSampleData} />
-          </Route>
+            <Route path="/Workshops">
+              <Workshops />
+            </Route>
 
-          <Route path="/CLC">
-            <CLC />
-          </Route>
+            <Route path="/CLC">
+              <CLC />
+            </Route>
 
-          <Route path="/OnlineCourses">
-            <Ocourses />
-          </Route>
+            <Route path="/OnlineCourses">
+              <Ocourses />
+            </Route>
 
-          <Route path="/Gallery">
-            <Gallery />
-          </Route>
+            <Route path="/Gallery/:category" render={(props) => <GalleryDisplay {...props} />} />
 
-          <Route path="/Demos">
-            <Demos />
-          </Route>
+            <Route path="/Art/:artId" render={(props) => <ArtDisplay {...props} />} />
 
-          <Route path="/Publications">
-            <Publications />
-          </Route>
+            <Route path="/Gallery">
+              <Gallery />
+            </Route>
 
-          <Route path="/Contacts">
-            <Contacts />
-          </Route>
+            <Route path="/Demos">
+              <Demos />
+            </Route>
 
-          <Route path="/Collabs">
-            <Collabs />
-          </Route>
+            <Route path="/Publications">
+              <Publications />
+            </Route>
 
-          <Route path="/admin">
-            <Admin />
-          </Route>
+            <Route path="/Contacts">
+              <Contacts />
+            </Route>
 
-          <Route path="/Edit">
-            <Edit />
-          </Route>
+            <Route path="/Collabs">
+              <Collabs />
+            </Route>
 
-          <Route path="/">
-            <Home />
-          </Route>
+            <Route path="/admin">
+              <Admin setAuth={this.setAuth.bind(this)} />
+            </Route>
 
-        </Switch>
-      </div>
-    </Router>
-  )
+            <Route path="/Edit">
+              <Edit isAuth={this.state.auth} />
+            </Route>
+
+            <Route path="/Home">
+              <Home />
+            </Route>
+
+            <Route path="/poop">
+              <PaymentModal />
+            </Route>
+
+            <Redirect from="/" to="/Home" />
+
+
+          </Switch>
+
+
+        </div>
+      </Router>
+    )
+  }
 }
+
+export default RouteManager;

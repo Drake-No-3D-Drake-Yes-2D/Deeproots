@@ -1,13 +1,24 @@
-import React from 'react'
+import React from 'react';
+import { useState, useEffect } from 'react';
 
-export default function Collabs() {
-  return (
-    <div className="background">
-      <div class="bottomBar">
-        <h2 class="centerText">
-          Collabs
-        </h2>
-      </div>
-    </div>
-  );
+import "./General.css";
+import DefaultPage from './generic/DefaultPage';
+import ReactMarkdown from 'react-markdown';
+import { getContent } from '../api';
+
+
+export default function Colabs() {
+
+    const [content, setContent] = useState('');
+
+    useEffect(() => {
+        getContent('collabs', setContent)
+    }, [setContent]);
+
+    return (
+        <DefaultPage>
+            <h1>Collaborations</h1>
+            <ReactMarkdown source={content} />
+        </DefaultPage>
+    );
 }
