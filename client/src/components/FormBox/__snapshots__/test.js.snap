@@ -1,9 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Contact Box Renders correctly 1`] = `
+exports[`Form Box Renders correctly 1`] = `
 ShallowWrapper {
   Symbol(enzyme.__root__): [Circular],
-  Symbol(enzyme.__unrendered__): <ContactBox />,
+  Symbol(enzyme.__unrendered__): <FormBox />,
   Symbol(enzyme.__renderer__): Object {
     "batchedUpdates": [Function],
     "getNode": [Function],
@@ -17,13 +17,13 @@ ShallowWrapper {
     "key": undefined,
     "nodeType": "host",
     "props": Object {
-      "children": "Contact",
+      "children": "Form",
       "className": "btn btn-sm",
       "id": "contact-button",
       "onClick": [Function],
     },
     "ref": null,
-    "rendered": "Contact",
+    "rendered": "Form",
     "type": "button",
   },
   Symbol(enzyme.__nodes__): Array [
@@ -32,13 +32,13 @@ ShallowWrapper {
       "key": undefined,
       "nodeType": "host",
       "props": Object {
-        "children": "Contact",
+        "children": "Form",
         "className": "btn btn-sm",
         "id": "contact-button",
         "onClick": [Function],
       },
       "ref": null,
-      "rendered": "Contact",
+      "rendered": "Form",
       "type": "button",
     },
   ],
