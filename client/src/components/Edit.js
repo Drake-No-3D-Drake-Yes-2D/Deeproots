@@ -82,7 +82,7 @@ class Edit extends React.Component {
         original: data.orig.checked,
         active: true
       }
-      api.post('gallery/'+artId+'/prices', price)
+      api.post('art/'+artId+'/prices', price)
       alert("Art created")
     }
   }
@@ -114,13 +114,13 @@ class Edit extends React.Component {
       seats: data.seats.value,
       active: true
     }
-<<<<<<< HEAD
     var resp = await api.post('workshop', workshop)
     let workshopId = resp.data._id;
     var price = {
       title: data.priceLabel.value,
       price: data.price.value,
-      active: true
+      active: true,
+      seats: 1
     }
     try {
       api.post('workshop/'+workshopId+'/prices', price)
@@ -129,10 +129,7 @@ class Edit extends React.Component {
     }
     alert("Workshop created")
   }
-=======
-    api.post('workshop', workshop)
-}
->>>>>>> 8579e4af3ea6e8cca6106f677360ab92ca8b8c34
+
 
   handleContentSubmit(event) {
     event.preventDefault();
