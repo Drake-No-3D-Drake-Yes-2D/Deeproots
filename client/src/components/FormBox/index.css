@@ -1,0 +1,32 @@
+form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-top: 20px;
+}
+
+.form-container {
+  width: 100%;
+}
+
+.btn-action {
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.form-group{
+  width: 60%;
+}
+
+#contact-button{
+  margin-top: 30px;
+}
+
+@media only screen and (max-width: 768px) {
+  .form-group{
+    width: 90%;
+  }
+}
+
