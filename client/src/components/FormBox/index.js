@@ -4,7 +4,7 @@ import './index.css'
 
 const GOOGLE_FORM_MESSAGE_ID = 'entry.2606285'
 const GOOGLE_FORM_ATTENDING_ID = 'entry.1498135098'
-const CORS_PROXY = 'https://cors-escape.herokuapp.com/'
+const CORS_PROXY = 'https://cors-anywhere.herokuapp.com/'
 const GOOGLE_FORM_ACTION = 'https://docs.google.com/forms/u/5/d/e/1FAIpQLSfBYrkGVJrlkgxuGVzzBTnGOCJpVEO4b8vhDNXEr4SAk8Ei7w/formResponse'
 
 class FormBox extends Component {
@@ -113,7 +113,7 @@ class FormBox extends Component {
           <form onSubmit={this.handleSubmit}>
             <div className='form-group row'>
               <label htmlFor='attending' className='col-sm-2 col-form-label'>
-                What are the names of people attending? :
+                What are the names of people attending?:
               </label>
               <div className='col-sm-8'>
                 <textarea 
