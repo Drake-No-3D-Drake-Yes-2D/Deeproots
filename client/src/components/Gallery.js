@@ -9,10 +9,16 @@ import DefaultPage from './generic/DefaultPage';
 
 function GalleryCategory({ category, title, description }) {
     return (
-        <div style={{ margin: "2em 0", background: "white", padding: "2em", border: "0.5em solid black" }} >
+        <div className="contentHolder" >
+            <div className="chInnerBorder">
             <h2>{title}</h2>
             <ReactMarkdown source={description} />
-            <Link to={`/gallery/${category}`}>See This Gallery</Link>
+            <Link to={`/gallery/${category}`}>
+                <button style ={{border:"3px solid #00000089"}}>
+                See This Gallery
+                </button>
+            </Link>
+            </div>
         </div>
     );
 }
@@ -35,7 +41,7 @@ export default function Gallery() {
     return (
         <div>
             <DefaultPage>
-                <ReactMarkdown source={header} />
+                <ReactMarkdown style={{color:"#654321"}} source={header} />
                 <CategoriesList categories={categories} />
             </DefaultPage>
         </div>

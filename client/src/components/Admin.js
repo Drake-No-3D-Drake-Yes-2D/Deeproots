@@ -9,6 +9,7 @@ import {
 import Edit from './Edit'
 
 import {md5} from '../static/md5.js'
+import DefaultPage from './generic/DefaultPage';
 
 class Admin extends React.Component {
 
@@ -27,18 +28,22 @@ class Admin extends React.Component {
 
   render() {
     return (
-        <div className ="background-Unscaled">
+      <DefaultPage>
+      <div className="contentHolder">  
+        <div className="chInnerBorder">
           <center>
-            <h2>Admin</h2>
+            <h2 style={{color:"#654321"}}>Admin</h2>
                   <form onSubmit={this.getPassword.bind(this)}>
                       <label>
                           Password:
-                          <input type="password" ref="password" />
+                          <input style={{padding:"3px 8px", border:"2px solid #00000069", fontSize:"15px", borderradius:"5px"}} type="password" placeholder="Enter password here" ref="password" />
                       </label>
-                      <input type="submit" value="Submit" />
+                      <input style={{margin:"2em", padding:"3px 8px", border:"2px solid #00000069", borderradius:"5px"}} type="submit" value="Submit" />
                   </form>
             </center>
           </div>
+        </div>
+      </DefaultPage>
       );
     }
 }

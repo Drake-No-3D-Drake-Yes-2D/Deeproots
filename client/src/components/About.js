@@ -17,8 +17,12 @@ export default function About() {
 
     return (
         <DefaultPage>
-            <h1>About</h1>
-            <ReactMarkdown source={content} />
+            <div className="contentHolder">  
+                <div className="chInnerBorder">
+                <h1 style={{color:"#654321"}}>About</h1>
+                    <ReactMarkdown source={content} />
+                </div>
+            </div>
         </DefaultPage>
     );
 }

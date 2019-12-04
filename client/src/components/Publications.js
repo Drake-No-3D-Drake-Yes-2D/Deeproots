@@ -16,9 +16,13 @@ export default function Publications() {
     }, [setContent]);
 
     return (
-        <DefaultPage>
-        <h1>Publications</h1>
-            <ReactMarkdown source={content} />
+        <DefaultPage> 
+        <div className="contentHolder">
+                <div className="chInnerBorder">
+                    <h1 style={{color:"#654321"}}>Publications</h1>
+                    <ReactMarkdown source={content} />
+                </div>
+            </div>    
         </DefaultPage>
     );
 }

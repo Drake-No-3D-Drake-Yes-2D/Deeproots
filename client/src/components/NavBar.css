@@ -19,13 +19,13 @@
 
 /* Change the color of links on hover */
 .Nav-topnav a:hover {
-  background-color: yellowgreen;
+  background-color: #A2420869;
   color: black;
 }
 
 /* Add a color to the active/current link */
 .Nav-topnav a.active {
-  background-color: green;
+  background-color: #A24208;
   color: white;
 }
 

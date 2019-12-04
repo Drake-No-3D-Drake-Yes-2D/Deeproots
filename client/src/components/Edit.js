@@ -143,8 +143,8 @@ class Edit extends React.Component {
       if (comp === 0) {
           return (
             <div style={{display:"flex", width:"100%", justifyContent:"center"}}>
-            <div style={{width:"50%", background: "#f2eecb89", padding: "2em", margin:"3em 0",
-            borderRadius:"10px", border:"0.25em solid #ddddee", boxShadow:"10px 10px #00000089"}}>
+            <div className="contentHolder" style={{width:"60%", height:"60%"}}>
+            <div className="chInnerBorder">
               <h2 style={{background:"gray", padding:"1em" , boxShadow:"4px 3px #00000039", borderRadius:"10px"}}>Admin Editor Panel</h2>
               <div>
               <a style={{background:"linear-gradient(36deg, #e65300, #f3f56b 90%)", boxShadow:"4px 3px #00000039" ,opacity:".9", color:"white", fontWeight:"bold", padding:"3em 2em", margin:".5em" , borderRadius:"10px",display:"inline-block"}} id="1" onClick={this.handleClick.bind(this)}>About</a>
@@ -159,7 +159,7 @@ class Edit extends React.Component {
               </div>
 
               <div style={{padding:"15px"}}>
-              <button style={{boxShadow:"4px 3px #00000039"}}>
+              <button style ={{border:"3px solid #00000089"}}>
               <NavLink style={{textDecoration:"none",color:"black"}} to="/Home">
                 Home                
               </NavLink>
@@ -167,22 +167,24 @@ class Edit extends React.Component {
               </div>
             </div>
             </div>
+            </div>
           )
       }
       else if (comp === '1') {
         return (
           <div style={{display:"flex", width:"100%", justifyContent:"center"}}>
-          <div style={{width:"50%", background: "#90ee90", padding: "2em", margin:"3em 0",
-          borderRadius:"10px", border:"0.25em solid #64e77a", boxShadow:"10px 10px #00000089"}}>
+          <div className="contentHolder" style={{width:"60%", height:"60%"}}>
+          <div style={{justifyContent:"left"}}>
             <h2 class="centerText">Edit About</h2>
             <form onSubmit={this.handleContentSubmit.bind(this)}>
-              <textarea ref="content"/><br />
-              <input type="submit" value="Submit" />
+              <textarea style={{width:"80%", border:"10px solid #00000069", borderradius:"10px"}} ref="content"/><br />
+              <input style={{margin:"2em", padding:"3px 8px", border:"2px solid #00000069", borderradius:"5px"}} type="submit" value="Submit" />
             </form>
 
             <div style={{padding:"15px"}}>
-            <button onClick={() => window.location.reload(false)}>Back To Edit</button>         
+            <button style ={{border:"3px solid #00000089"}} onClick={() => window.location.reload(false)}>Back To Edit</button>         
             </div>
+          </div>
           </div>
           </div>
         )
@@ -190,37 +192,41 @@ class Edit extends React.Component {
       else if (comp === '2') {
         return (
           <div style={{display:"flex", width:"100%", justifyContent:"center"}}>
-          <div style={{width:"50%", background: "#90ee90", padding: "2em", margin:"3em 0",
-          borderRadius:"10px", border:"0.25em solid #64e77a", boxShadow:"10px 10px #00000089"}}>
+          <div className="contentHolder" style={{width:"60%", height:"60%"}}>
             <h2 class="centerText">Edit Workshops</h2>
+            <div style={{justifyContent:"left"}}>
             <form onSubmit={this.handleWorkshopsSubmit.bind(this)}>
+              
               <h3>Add</h3><br />
-                <label>Workshop Title:
-                  <input type="text" ref="title" /><br />
+                <label>Workshop Title
+                  <input style={{width:"80%", border:"10px solid #00000069", borderradius:"10px"}} type="text" ref="title" /><br />
                 </label>
-                <label>Description:
-                  <textarea ref="description" /><br />
+                <label>Description
+                  <textarea style={{width:"80%", border:"10px solid #00000069", borderradius:"10px"}} ref="description" /><br />
                 </label>
-                <label>Date:
-                  <input type="date" ref="date" /><br />
+                <label>Date
+                  <input style={{width:"80%", border:"10px solid #00000069", borderradius:"10px"}} type="date" ref="date" /><br />
                 </label>
-                <label>Location:
-                  <input type="text" ref="loc" /><br />
+                <label>Location
+                  <input style={{width:"80%", border:"10px solid #00000069", borderradius:"10px"}} type="text" ref="loc" /><br />
                 </label>
-                <label>Image Link:
-                  <input type="text" ref="img" /><br />
+                <label>Image Link
+                  <input style={{width:"80%", border:"10px solid #00000069", borderradius:"10px"}} type="text" ref="img" /><br />
                 </label>
-                <label>Seats:
-                  <input type="text" ref="seats" /><br />
+                <label>Seats
+                  <input style={{width:"80%", border:"10px solid #00000069", borderradius:"10px"}} type="text" ref="seats" /><br />
                 </label>
                 <label>Prices:
-                  <textarea ref="prices" /><br />
+                  <textarea style={{width:"80%", border:"10px solid #00000069", borderradius:"10px"}} ref="prices" /><br />
                 </label>
               <input type="submit" value="Submit" />
+              
             </form>
+            </div>
+
 
             <div style={{padding:"15px"}}>
-            <button onClick={() => window.location.reload(false)}>Back To Edit</button>         
+            <button style ={{border:"3px solid #00000089"}} onClick={() => window.location.reload(false)}>Back To Edit</button>         
             </div>
             </div>
           </div>
@@ -229,16 +235,15 @@ class Edit extends React.Component {
       else if (comp === '3') {
         return (
           <div style={{display:"flex", width:"100%", justifyContent:"center"}}>
-          <div style={{width:"50%", background: "#90ee90", padding: "2em", margin:"3em 0",
-          borderRadius:"10px", border:"0.25em solid #64e77a", boxShadow:"10px 10px #00000089"}}>
+          <div className="contentHolder" style={{width:"60%", height:"60%"}}>
             <h2 class="centerText">Edit CLC</h2>
             <form onSubmit={this.handleContentSubmit.bind(this)}>
-              <textarea ref="content"/><br />
+              <textarea style={{width:"80%", border:"10px solid #00000069", borderradius:"10px"}} ref="content"/><br />
               <input type="submit" value="Submit" />
             </form>
 
             <div style={{padding:"15px"}}>
-            <button onClick={() => window.location.reload(false)}>Back To Edit</button>         
+            <button style ={{border:"3px solid #00000089"}} onClick={() => window.location.reload(false)}>Back To Edit</button>         
             </div>
           </div>
           </div>
@@ -247,26 +252,25 @@ class Edit extends React.Component {
       else if (comp === '4') {
         return (
           <div style={{display:"flex", width:"100%", justifyContent:"center"}}>
-          <div style={{width:"50%", background: "#90ee90", padding: "2em", margin:"3em 0",
-          borderRadius:"10px", border:"0.25em solid #64e77a", boxShadow:"10px 10px #00000089"}}>
+          <div className="contentHolder" style={{width:"60%", height:"60%"}}>
             <h2 class="centerText">Edit Online Courses</h2>
             <form onSubmit={this.handleCoursesSubmit.bind(this)}>
               <h3>Add</h3><br />
                 <label>Course Name:
-                  <input type="text" ref="nameAdd" /><br />
+                  <input style={{width:"80%", border:"10px solid #00000069", borderradius:"10px"}} type="text" ref="nameAdd" /><br />
                 </label>
                 <label>Link:
-                  <input type="text" ref="link" /><br />
+                  <input style={{width:"80%", border:"10px solid #00000069", borderradius:"10px"}} type="text" ref="link" /><br />
                 </label>
               <h3>Remove</h3><br />
                 <label>Course Name:
-                  <input type="text" ref="nameRem" /><br />
+                  <input style={{width:"80%", border:"10px solid #00000069", borderradius:"10px"}} type="text" ref="nameRem" /><br />
                 </label>
               <input type="submit" value="Submit" />
             </form>
 
             <div style={{padding:"15px"}}>
-            <button onClick={() => window.location.reload(false)}>Back To Edit</button>         
+            <button style ={{border:"3px solid #00000089"}} onClick={() => window.location.reload(false)}>Back To Edit</button>         
             </div>
             </div>
           </div>
@@ -275,34 +279,33 @@ class Edit extends React.Component {
       else if (comp === '5') {
         return (
           <div style={{display:"flex", width:"100%", justifyContent:"center"}}>
-          <div style={{width:"50%", background: "#90ee90", padding: "2em", margin:"3em 0",
-          borderRadius:"10px", border:"0.25em solid #64e77a", boxShadow:"10px 10px #00000089"}}>
+          <div className="contentHolder" style={{width:"60%", height:"60%"}}>
             <h2 class="centerText">Edit Gallery</h2>
             <form onSubmit={this.handleGallerySubmit.bind(this)}>
               <h3>Add Art</h3><br />
                 <label>Title:
-                  <input type="text" ref="artTitle"/><br />
+                  <input style={{width:"80%", border:"10px solid #00000069", borderradius:"10px"}} type="text" ref="artTitle"/><br />
                 </label>
                 <label>Artist:
-                  <input type="text" ref="artist"/><br />
+                  <input style={{width:"80%", border:"10px solid #00000069", borderradius:"10px"}} type="text" ref="artist"/><br />
                 </label>
                 <label>Image URL:
-                  <input type="text" ref="img"/><br />
+                  <input style={{width:"80%", border:"10px solid #00000069", borderradius:"10px"}} type="text" ref="img"/><br />
                 </label>
                 <label>Category:
-                  <input type="text" ref="artCat"/><br />
+                  <input style={{width:"80%", border:"10px solid #00000069", borderradius:"10px"}} type="text" ref="artCat"/><br />
                 </label>
                 <label>Original:
-                  <input type="checkbox" defaultChecked={false} ref='orig'/><br />
+                  <input style={{width:"80%", border:"10px solid #00000069", borderradius:"10px"}} type="checkbox" defaultChecked={false} ref='orig'/><br />
                 </label>
                 <label>Prices:
-                  <textarea ref="prices" /><br />
+                  <textarea style={{width:"80%", border:"10px solid #00000069", borderradius:"10px"}} ref="prices" /><br />
                 </label>
               <input type="submit" value="Submit" />
             </form>
 
             <div style={{padding:"15px"}}>
-            <button onClick={() => window.location.reload(false)}>Back To Edit</button>         
+            <button style ={{border:"3px solid #00000089"}} onClick={() => window.location.reload(false)}>Back To Edit</button>         
             </div>
             </div>
           </div>
@@ -311,18 +314,17 @@ class Edit extends React.Component {
       else if (comp === '6') {
         return (
           <div style={{display:"flex", width:"100%", justifyContent:"center"}}>
-          <div style={{width:"50%", background: "#90ee90", padding: "2em", margin:"3em 0",
-          borderRadius:"10px", border:"0.25em solid #64e77a", boxShadow:"10px 10px #00000089"}}>
+          <div className="contentHolder" style={{width:"60%", height:"60%"}}>
             <h2 class="centerText">Edit Demos</h2>
             <form >
               <label>Link:
-                <input type="text" ref="link"/><br />
+                <input style={{width:"80%", border:"10px solid #00000069", borderradius:"10px"}} type="text" ref="link"/><br />
               </label>
               <input type="submit" value="Submit" />
             </form>
 
             <div style={{padding:"15px"}}>
-            <button onClick={() => window.location.reload(false)}>Back To Edit</button>         
+            <button style ={{border:"3px solid #00000089"}} onClick={() => window.location.reload(false)}>Back To Edit</button>         
             </div>
             </div>
           </div>
@@ -331,16 +333,15 @@ class Edit extends React.Component {
       else if (comp === '7') {
         return (
           <div style={{display:"flex", width:"100%", justifyContent:"center"}}>
-          <div style={{width:"50%", background: "#90ee90", padding: "2em", margin:"3em 0",
-          borderRadius:"10px", border:"0.25em solid #64e77a", boxShadow:"10px 10px #00000089"}}>
+          <div className="contentHolder" style={{width:"60%", height:"60%"}}>
             <h2 class="centerText">Edit Publications</h2>
             <form onSubmit={this.handleContentSubmit.bind(this)}>
-              <textarea ref="content"/><br />
+              <textarea style={{width:"80%", border:"10px solid #00000069", borderradius:"10px"}} ref="content"/><br />
               <input type="submit" value="Submit" />
             </form>
 
             <div style={{padding:"15px"}}>
-            <button onClick={() => window.location.reload(false)}>Back To Edit</button>         
+            <button style ={{border:"3px solid #00000089"}} onClick={() => window.location.reload(false)}>Back To Edit</button>         
             </div>
             </div>
           </div>
@@ -349,16 +350,15 @@ class Edit extends React.Component {
       else if (comp === '8') {
         return (
           <div style={{display:"flex", width:"100%", justifyContent:"center"}}>
-          <div style={{width:"50%", background: "#90ee90", padding: "2em", margin:"3em 0",
-          borderRadius:"10px", border:"0.25em solid #64e77a", boxShadow:"10px 10px #00000089"}}>
+          <div className="contentHolder" style={{width:"60%", height:"60%"}}>
             <h2 class="centerText">Edit Contacts</h2>
             <form onSubmit={this.handleContentSubmit.bind(this)}>
-              <textarea ref="content"/><br />
+              <textarea style={{width:"80%", border:"10px solid #00000069", borderradius:"10px"}} ref="content"/><br />
               <input type="submit" value="Submit" />
             </form>
 
             <div style={{padding:"15px"}}>
-            <button onClick={() => window.location.reload(false)}>Back To Edit</button>         
+            <button style ={{border:"3px solid #00000089"}} onClick={() => window.location.reload(false)}>Back To Edit</button>         
             </div>
             </div>
           </div>
@@ -367,18 +367,17 @@ class Edit extends React.Component {
       else if (comp === '9') {
         return (
           <div style={{display:"flex", width:"100%", justifyContent:"center"}}>
-          <div style={{width:"50%", background: "#90ee90", padding: "2em", margin:"3em 0",
-          borderRadius:"10px", border:"0.25em solid #64e77a", boxShadow:"10px 10px #00000089"}}>
+          <div className="contentHolder" style={{width:"60%", height:"60%"}}>
             <h2 class="centerText">Edit Collabs</h2>
             <form >
               <label>Link:
-                <input type="text" ref="link"/><br />
+                <input style={{width:"80%", border:"10px solid #00000069", borderradius:"10px"}} type="text" ref="link"/><br />
               </label>
               <input type="submit" value="Submit" />
             </form>
 
             <div style={{padding:"15px"}}>
-            <button onClick={() => window.location.reload(false)}>Back To Edit</button>         
+            <button style ={{border:"3px solid #00000089"}} onClick={() => window.location.reload(false)}>Back To Edit</button>         
             </div>
             </div>
           </div>
@@ -387,20 +386,21 @@ class Edit extends React.Component {
     } else {
       return (
         <div style={{display:"flex", width:"100%", justifyContent:"center"}}>
-          <div style={{width:"50%", background: "#90ee90", padding: "2em", margin:"3em 0",
-          borderRadius:"10px", border:"0.25em solid #64e77a", boxShadow:"10px 10px #00000089"}}>
-            <h2 class="centerText">Please log in to access admin functionality
+          <div className="contentHolder">
+            <div className ="chInnerBorder">
+            <h2 style={{color:"#654321",fontSize:"30px" ,textAlign:"center"}}>Please Log In to Access Admin Functionality
             </h2>
               <NavLink to="/Admin">
-                <button>Login</button>
+                <button style ={{border:"3px solid #00000089"}}>Login</button>
               </NavLink>
 
               <div style={{padding:"15px"}}>
-              <button>
+              <button style ={{border:"3px solid #00000089"}}>
               <NavLink style={{textDecoration:"none",color:"black"}} to="/Home">
                 Home                
               </NavLink>
               </button>
+            </div>
             </div>
             </div>
 

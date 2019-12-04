@@ -17,8 +17,12 @@ export default function OCourses() {
 
     return (
         <DefaultPage>
-            <h1>Online Courses</h1>
-            <ReactMarkdown source={content} />
+            <div className="contentHolder" >
+                <div className="chInnerBorder">
+                    <h1 style={{color:"#654321"}}>Online Courses</h1>
+                    <ReactMarkdown source={content} />
+                </div>
+            </div>
         </DefaultPage>
     );
 }
