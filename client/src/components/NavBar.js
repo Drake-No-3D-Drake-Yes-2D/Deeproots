@@ -22,14 +22,14 @@ class NavBar extends React.Component {
         <NavLink to="/Publications">Publications</NavLink>
         <NavLink to="/Contacts">Contacts</NavLink>
         <NavLink to="/Collabs">Collabs</NavLink>
+        <NavLink to="/Edit">Edit</NavLink>
 
         <a className="icon" onClick={() => {
           this.setState({ toggled: !this.state.toggled });
         }}>
           <i className="fa fa-bars"></i>
         </a>
-
-      </div>
+        </div>
     );
   }
 }

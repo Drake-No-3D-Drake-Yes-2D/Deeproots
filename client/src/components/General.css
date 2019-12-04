@@ -11,7 +11,7 @@
   height: 92.4vh;
   width: 40vw;
   vertical-align: bottom;
-  background-color: #90EE90;
+  background-color: #A24208;
   overflow: hidden;
 }
 
@@ -21,7 +21,7 @@
   height: 48vh;
   width: 100%;
   vertical-align: bottom;
-  background-color: #90EE90;
+  background-color: #A24208;
   overflow: hidden;
 }
 
@@ -31,9 +31,41 @@
 }
 
 body {
-  background-image: linear-gradient(180deg, rgba(255, 255, 255, 0.36) 8.19%, rgba(255, 249, 114, 0.162) 40.19%, rgba(0, 255, 25, 0.36) 99.07%);
+  background-image: linear-gradient(180deg, rgba(255, 255, 255, 0.36) 8.19%, #ffe1a6 60.07%,#fffc5489);
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;
   text-align: center;  
 }
+
+.contentHolder {
+  margin: 2em 0;
+  background: #F5F5DC;
+  padding: 2em;
+  box-Shadow:5px -8px #00000059;
+  border: 0.5em solid #F5F5DC89;
+  border-Radius:25px;
+}
+
+.video-container {
+  position: relative;
+  padding-bottom: 56.25%;
+  padding-top: 35px;
+  height: 0;
+  overflow: hidden;
+}
+
+.video-container iframe {
+  position: absolute;
+  top:0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.chInnerBorder {
+  border:0.5em ridge #CFDF9C;
+  padding:33px;
+  border-Radius:25px;
+}
+

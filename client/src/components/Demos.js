@@ -17,8 +17,14 @@ export default function Demos() {
 
     return (
         <DefaultPage>
-            <ReactMarkdown source={content} />
-            <iframe width="560" height="315" src="https://www.youtube.com/embed/J6bY8rJ-e6A" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <div className="contentHolder">
+                <div className="chInnerBorder">
+                    <ReactMarkdown style={{color:"#654321"}} source={content} />
+                    <div className="video-container">
+                        <iframe width="200 " height="200" src="https://www.youtube.com/embed/J6bY8rJ-e6A" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                </div>  
+            </div>
         </DefaultPage>
     );
 }

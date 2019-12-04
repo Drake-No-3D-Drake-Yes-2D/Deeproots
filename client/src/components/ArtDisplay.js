@@ -6,6 +6,7 @@ import "./General.css";
 import { getContent, getData } from '../api';
 import DefaultPage from './generic/DefaultPage';
 import ReactMarkdown from 'react-markdown';
+import { Collection } from 'mongoose';
 
 function ArtImage({ image_url, title }) {
     return (
@@ -40,12 +41,20 @@ export default function ArtDisplay(props) {
 
     return (
         <DefaultPage>
+            <div className="contentHolder" >
+            <div className="chInnerBorder">
             <h1>{art.title || ""}</h1>
             <h2>Artist: {art.artist || ""}</h2>
             <ArtImage image_url={art.image_url || ""} title={art.title || ""} />
             <ReactMarkdown source={info} />
             <ArtPrices prices={art.prices || []} has_original={art.has_original || false} />
-            <Link to={`/gallery/${backLocation}`}>Back</Link>
+            <Link to={`/gallery/${backLocation}`}>
+                <button style ={{ margin:"2em",backgroundColor:"#65432130"}}>
+                Back
+                </button>    
+            </Link>
+            </div>
+            </div>
         </DefaultPage>
     );
 }

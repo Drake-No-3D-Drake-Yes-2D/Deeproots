@@ -15,9 +15,15 @@ function ArtImage({ image_url, title }) {
 
 function ArtCard({ image_url, title, category, _id }) {
     return (
-        <div style={{ margin: "1em 0", background: "", padding: "2em" }} id={`id_${_id}`}>
+        <div className="contentHolder" id={`id_${_id}`}>
+            <div className="chInnerHolder">
             <ArtImage image_url={image_url} title={title} />
-            <Link to={{ pathname: `/Art/${_id}`, category: category }} >More Info & Purchase Options</Link>
+            <Link to={{ pathname: `/Art/${_id}`, category: category }} >
+            <button style ={{border:"3px solid #00000089"}}>
+                More Info & Purchase Options
+                </button>    
+            </Link>
+            </div>
         </div >
     );
 }

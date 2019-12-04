@@ -17,8 +17,12 @@ export default function Colabs() {
 
     return (
         <DefaultPage>
-            <h1>Collaborations</h1>
-            <ReactMarkdown source={content} />
+            <div className="contentHolder" >
+                <div className="chInnerBorder">
+                    <h1 style={{color:"#654321"}}>Collaborations</h1>
+                    <ReactMarkdown source={content} />
+                </div>
+            </div>
         </DefaultPage>
     );
 }

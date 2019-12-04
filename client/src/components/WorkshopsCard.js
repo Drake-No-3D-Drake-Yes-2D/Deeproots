@@ -8,7 +8,7 @@ import FormBox from './FormBox'
 function WorkshopCardHeader({ title, date }) {
     return (
         <div style={{ display: "flex" }}>
-            <div style={{ flex: "auto", textAlign: "left" }}><b>{title}</b></div>
+            <div style={{ flex: "auto", textAlign: "left" , fontSize:"20px", color:"#654321"}}><b>{title}</b></div>
             <div style={{ flex: "none" }}>{new Date(date).toLocaleDateString()}</div>
         </div>
     );
@@ -59,10 +59,12 @@ function WorkshopCardBody({ location, description, seats, prices }) {
 
 export default function WorkshopCard({ date, title, location, description, image_url, seats, prices }) {
     return (
-        <div style={{ margin: "2em 0", background: "white", padding: "2em", border: "0.5em solid black" }} >
+        <div className="contentHolder" >
+            <div className="chInnerBorder">
             <WorkshopCardHeader date={date} title={title} />
             <WorkshopCardImage image_url={image_url} title={title} />
             <WorkshopCardBody location={location} description={description} seats={seats} prices={prices} />
+            </div>
         </div>
     );
 }
