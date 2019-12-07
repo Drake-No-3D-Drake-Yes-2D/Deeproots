@@ -3,12 +3,12 @@ var mongoose = require('mongoose'),
     ObjectId = mongoose.Schema.Types.ObjectId;
 
 var artSchema = new Schema({
-    title: String,
-    artist: String,
-    image_url: String,
-    prices: [{ type : ObjectId, ref: 'Price' }],
-    has_original: Boolean,
-    active: Boolean,
+    title: String, // art title
+    artist: String, // artist
+    image_url: String, // image stored externally
+    prices: [{ type : ObjectId, ref: 'Price' }], //prices to be added later
+    has_original: Boolean, // does the art have an original able to be sold?
+    active: Boolean, // shoulf the art be shown to the user?
     created_at: Date
 });
 

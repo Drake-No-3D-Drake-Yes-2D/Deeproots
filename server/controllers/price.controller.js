@@ -2,6 +2,7 @@ const PriceModels = require('../models/price.model.js')
 const Purchase = require('../models/purchase.model.js')
 const Price = PriceModels.Price;
 
+// get all prices of all items
 exports.all = function (req, res) {
     Price.find({})
         .exec(function (err, prices) {
@@ -13,6 +14,7 @@ exports.all = function (req, res) {
         });
 };
 
+// get a specific price
 exports.price = function (req, res) {
     Price.findById(req.params.priceId)
         .exec(function (err, price) {
@@ -24,6 +26,7 @@ exports.price = function (req, res) {
         });
 };
 
+// edit a specific price
 exports.edit = function (req, res) {
     Price.findByIdAndUpdate(
         req.params.priceId,
@@ -39,6 +42,7 @@ exports.edit = function (req, res) {
     );
 }
 
+// add a purchase to a price
 exports.addPurchase = function (req, res) {
     var purchase = new Purchase(req.body);
     purchase.save(function (err, npurchase) {

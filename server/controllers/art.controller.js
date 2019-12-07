@@ -2,6 +2,8 @@ const Art = require('../models/art.model.js')
 const Price = require('../models/price.model.js')
 const Purchase = require('../models/purchase.model.js')
 
+// get all art
+// include prices and purchases
 exports.all = function (req, res) {
     Art.find({})
         .populate({
@@ -20,6 +22,8 @@ exports.all = function (req, res) {
         });
 };
 
+// get specific art by ID
+// include prices and purchases
 exports.art = function (req, res) {
     Art.findById(req.params.artId)
         .populate({
@@ -38,7 +42,7 @@ exports.art = function (req, res) {
         });
 };
 
-
+// patch an existing art
 exports.edit = function (req, res) {
     Art.findByIdAndUpdate(
         req.params.artId,
@@ -54,6 +58,7 @@ exports.edit = function (req, res) {
     );
 }
 
+// add a price
 exports.addPrice = function (req, res) {
     var price = new Price.ArtPrice(req.body);
     price.save(function (err, nprice) {

@@ -35,6 +35,7 @@ function WorkshopCardPrices({ prices }) {
     ));
 }
 
+// for each price, get all active purchases, sum their seat counts, and subtract form total seats
 function calcSeatsRemaining(seats, prices) {
     return seats - prices.reduce((acc, x) => acc + ((x.seats || 1) * x.purchases.filter(y => y.active).length), 0)
 }
@@ -56,7 +57,7 @@ function WorkshopCardBody({ location, description, seats, prices }) {
     );
 }
 
-
+// one specific workshop
 export default function WorkshopCard({ date, title, location, description, image_url, seats, prices }) {
     return (
         <div className="contentHolder" >

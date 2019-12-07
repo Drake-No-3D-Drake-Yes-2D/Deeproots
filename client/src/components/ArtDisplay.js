@@ -14,6 +14,7 @@ function ArtImage({ image_url, title }) {
     );
 }
 
+// display prices of art 
 function ArtPrices({ prices, has_original }) {
     const original_left = has_original && prices.filter(x => x.original && x.purchases.filter(y => y.active).length > 0).length === 0;
     const avaliablePrices = prices.filter(x => x.active && (original_left || !x.original));
@@ -26,6 +27,7 @@ function ArtPrices({ prices, has_original }) {
     );
 }
 
+// show specific art with prices and description
 export default function ArtDisplay(props) {
     const [art, setArt] = useState('');
     const [info, setInfo] = useState('');

@@ -1,5 +1,6 @@
 const Purchase = require('../models/purchase.model.js')
 
+// get all purchases
 exports.all = function (req, res) {
     Purchase.find({})
         .exec(function (err, purchases) {
@@ -11,6 +12,7 @@ exports.all = function (req, res) {
         });
 };
 
+// get a specific purchase
 exports.purchase = function (req, res) {
     Purchase.findById(req.params.purchaseId)
         .exec(function (err, purchase) {
@@ -22,6 +24,8 @@ exports.purchase = function (req, res) {
         });
 };
 
+// edit a purchase
+// (to cancel, eg.)
 exports.edit = function (req, res) {
     Purchase.findByIdAndUpdate(
         req.params.purchaseId,

@@ -3,14 +3,14 @@ var mongoose = require('mongoose'),
     ObjectId = mongoose.Schema.Types.ObjectId;
 
 var workshopSchema = new Schema({
-    title: String,
-    description: String,
-    location: String,
-    date: Date,
-    image_url: String,
-    prices: [{ type : ObjectId, ref: 'Price' }],
-    seats: Number,
-    active: Boolean,
+    title: String, // title of the workshop
+    description: String, // description, including description of pricing options
+    location: String, // location as plaintext
+    date: Date, // time, formatted JSON style in UTF time zone (yyyy-mm-dd)
+    image_url: String, // url to image stored in another service
+    prices: [{ type : ObjectId, ref: 'Price' }], // list of prices to be added later
+    seats: Number, // number of seats remaining
+    active: Boolean, // should the workshop be shown to users?
     created_at: Date
 });
 

@@ -2,8 +2,8 @@ var mongoose = require('mongoose'),
     Schema = mongoose.Schema;
 
 var contentSchema = new Schema({
-    title: String,
-    content: String,
+    title: String, // title used to retreive the content
+    content: String, // content, often formatted as GFM (github flavored markdown)
     created_at: Date
 });
 

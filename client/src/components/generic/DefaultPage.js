@@ -1,6 +1,8 @@
 import React from "react";
 import '../General.css';
 
+// page with reasonable default styling
+// prevents content from being too wide
 export default function DefaultPage({ children }) {
     return (
         <div className= "background">
