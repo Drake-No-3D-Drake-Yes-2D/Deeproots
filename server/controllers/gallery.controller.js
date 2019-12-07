@@ -1,6 +1,7 @@
 const Gallery = require('../models/gallery.model.js')
 const Art = require('../models/art.model.js')
 
+// get all categories
 exports.categories = function (req, res) {
     Gallery.find({})
         .exec(function (err, categories) {
@@ -12,6 +13,9 @@ exports.categories = function (req, res) {
         });
 };
 
+// get specific category
+// populate art since we are now showing it
+// saves DB calls to get art directly
 exports.category = function (req, res) {
     Gallery.findOne({ category: req.params.category })
         .populate('art')
@@ -24,6 +28,8 @@ exports.category = function (req, res) {
         });
 };
 
+// insert category if does not exist
+// edit category if it does
 exports.upsertCategory = function (req, res) {
     Gallery.findOneAndUpdate(
         { category: req.params.category },
@@ -39,6 +45,7 @@ exports.upsertCategory = function (req, res) {
     );
 }
 
+// add art to a category
 exports.addArt = function (req, res) {
     var art = new Art(req.body);
     art.save(function (err, nart) {

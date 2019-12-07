@@ -15,6 +15,7 @@ function WorkshopsList(props) {
   );
 }
 
+// list of workshops
 export default function Workshops() {
 
   const [header, setHeader] = useState('');

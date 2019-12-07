@@ -3,11 +3,11 @@ var mongoose = require('mongoose'),
     ObjectId = mongoose.Schema.Types.ObjectId;
 
 var gallerySchema = new Schema({
-    category: String,
-    title: String,
-    description: String,
-    content: String,
-    art: [{ type : ObjectId, ref: 'Art' }],
+    category: String, // short name of the category without spaces to use as URL slug
+    title: String, // longer title shown to user
+    description: String, // short description to show in the list
+    content: String, // long description of the category that explains all the exciting parts
+    art: [{ type : ObjectId, ref: 'Art' }], // array of art to be added later
     created_at: Date
 });
 
