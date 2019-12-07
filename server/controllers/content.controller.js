@@ -1,5 +1,6 @@
 const Content = require('../models/content.model.js')
 
+// get latest content with given title
 exports.latest = function (req, res) {
     Content
         .findOne({ 'title': req.params.title })
@@ -13,6 +14,10 @@ exports.latest = function (req, res) {
         });
 };
 
+// add a new piece of content
+// or: update an existing content
+// (by adding a newer version for latest to retrieve)
+// this keeps version history in the db
 exports.add = function (req, res) {
     var content = new Content({
         title: req.params.title,

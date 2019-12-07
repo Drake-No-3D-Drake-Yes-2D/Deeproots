@@ -7,6 +7,7 @@ import "./General.css";
 import { getContent, getData } from '../api';
 import DefaultPage from './generic/DefaultPage';
 
+// show descrption, link to full gallery
 function GalleryCategory({ category, title, description }) {
     return (
         <div className="contentHolder" >
@@ -29,6 +30,8 @@ function CategoriesList(props) {
     );
 }
 
+
+// list of gallery categories
 export default function Gallery() {
     const [header, setHeader] = useState('');
     const [categories, setCategories] = useState([]);

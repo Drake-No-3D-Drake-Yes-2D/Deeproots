@@ -22,6 +22,8 @@ fs.readFile('exampleData.json', 'utf8', async function (err, data) {
 
     for (const request of exampleData) {
 
+        // if the endpoint field has a section with a :
+        // replace it with the previously saved key
         endpoint = request.endpoint.split('/').map(x => {
             if (x.startsWith(':')) {
                 return keys[x.substr(1)];
@@ -34,6 +36,7 @@ fs.readFile('exampleData.json', 'utf8', async function (err, data) {
 
         let resp = null;
 
+        // make the request
         if (request.method === 'post') {
             resp = await axios.post(`${url}${endpoint}`, request.content)
         }
@@ -41,6 +44,8 @@ fs.readFile('exampleData.json', 'utf8', async function (err, data) {
             resp = await axios.put(`${url}${endpoint}`, request.content)
         }
 
+        // if a key name is specified
+        // save the response _id to that name
         if (request.key !== undefined) {
             keys[request.key] = resp.data._id;
         }

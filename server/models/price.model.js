@@ -5,10 +5,10 @@ var mongoose = require('mongoose'),
 var options = { discriminatorKey: 'kind' };
 
 var priceSchema = new Schema({
-    title: String,
-    price: Number,
-    active: Boolean,
-    purchases: [{ type: ObjectId, ref: 'Purchase' }],
+    title: String, // short description to show on button
+    price: Number, // price in USD
+    active: Boolean, // should price be shown
+    purchases: [{ type: ObjectId, ref: 'Purchase' }], // array of purchases that are associated with this price
     created_at: Date
 });
 

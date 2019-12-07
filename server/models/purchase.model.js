@@ -2,8 +2,8 @@ var mongoose = require('mongoose'),
     Schema = mongoose.Schema;
 
 var purchaseSchema = new Schema({
-    payment_uid: { type: String, unique: true },
-    active: Boolean,
+    payment_uid: { type: String, unique: true }, // unique to prevent duplicates
+    active: Boolean, // set false to cancel the transaction
     created_at: Date
 });
 

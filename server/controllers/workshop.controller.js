@@ -2,6 +2,8 @@ const Workshop = require('../models/workshop.model.js')
 const Price = require('../models/price.model.js')
 const Purchase = require('../models/purchase.model.js')
 
+// get all workshops
+// include prices, purchases
 exports.all = function (req, res) {
     Workshop.find({})
         .populate({
@@ -21,6 +23,7 @@ exports.all = function (req, res) {
         });
 };
 
+// add a new workshop
 exports.add = function (req, res) {
     var workshop = new Workshop(req.body);
     workshop.save(function (err) {
@@ -32,6 +35,8 @@ exports.add = function (req, res) {
     });
 };
 
+// get a specific workshop
+// include prices and purchases
 exports.workshop = function (req, res) {
     Workshop.findById(req.params.workshopId)
         .populate({
@@ -50,6 +55,7 @@ exports.workshop = function (req, res) {
         });
 };
 
+// edit a worksop
 exports.edit = function (req, res) {
     Workshop.findByIdAndUpdate(
         req.params.workshopId,
@@ -65,6 +71,8 @@ exports.edit = function (req, res) {
     );
 }
 
+// add a price to a workshop
+// creates a new price
 exports.addPrice = function (req, res) {
 
     var price = new Price.WorkshopPrice(req.body);

@@ -13,6 +13,7 @@ function ArtImage({ image_url, title }) {
     );
 }
 
+// show art card with image and link
 function ArtCard({ image_url, title, category, _id }) {
     return (
         <div className="contentHolder" id={`id_${_id}`}>
@@ -35,6 +36,7 @@ function ArtList({ art, category }) {
     );
 }
 
+// show all art of a specific category
 export default function GalleryDisplay(props) {
     const [gallery, setGallery] = useState('');
     let { category } = useParams();
