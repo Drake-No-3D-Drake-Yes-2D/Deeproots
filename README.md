@@ -23,7 +23,13 @@ OSS Website for Deeproots Art & Culture
 
 `npm start server` run server
 ### Heroku
+Pushing to develop on GitHub automatically starts a Heroku build for the test site. Pushing to master starts a build for the production site. Builds may also be started manually with Heroku's UI.
 
+Heroku needs two variables configured for it to run properly:
+- REACT_APP_BASE_URL - the url the website is shown on
+- DB_URI - the connection string for Mongo Atlas
+
+If the website url changes (for example, by switching to a custom domain name) then the BASE_URL variable must be updated in Herkou.
 ## Updating
 #### Database
 Add your MongoDB URI to `config.js` to test different data.
