@@ -13,12 +13,14 @@ import DefaultPage from './generic/DefaultPage';
 
 class Admin extends React.Component {
 
+  // check password
   getPassword(event) {
 
     const hash = md5(this.refs.password.value);
     if (hash === "513a201b12ca39a64d7e23425f96c6b1") {
       this.props.setAuth(true);
       alert("Correct password");
+      // redirect
       this.props.history.push('/Edit')
     } else {
       alert("Incorrect password");
@@ -29,7 +31,7 @@ class Admin extends React.Component {
   render() {
     return (
       <DefaultPage>
-      <div className="contentHolder">  
+      <div className="contentHolder">
         <div className="chInnerBorder">
           <center>
             <h2 style={{color:"#654321"}}>Admin</h2>

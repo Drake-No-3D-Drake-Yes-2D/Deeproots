@@ -53,6 +53,7 @@ class Edit extends React.Component {
     this.setEdit(buttonID);
   }
 
+  // adds an art piece to a gallery with prices
   async handleGallerySubmit(event) {
     event.preventDefault()
     const data = this.refs
@@ -84,6 +85,7 @@ class Edit extends React.Component {
     alert("Art created")
   }
 
+  // adds a new course **unfinished**
   handleCoursesSubmit() {
     if (this.refs.nameAdd.value !== '') {
       if (this.refs.link.value === '') {
@@ -98,6 +100,7 @@ class Edit extends React.Component {
     }
   }
 
+  // adds a workshop with prices
   async handleWorkshopsSubmit(event) {
     event.preventDefault()
     const data = this.refs
@@ -127,6 +130,7 @@ class Edit extends React.Component {
   }
 
 
+  // adds text content to a page
   handleContentSubmit(event) {
     event.preventDefault();
     this.setContent(this.refs.content.value)
@@ -138,6 +142,7 @@ class Edit extends React.Component {
 
   render() {
 
+    // if user has admin authorization:
     if (this.props.isAuth) {
       var comp = this.state.edit;
       if (comp === 0) {
@@ -161,7 +166,7 @@ class Edit extends React.Component {
               <div style={{padding:"15px"}}>
               <button style ={{border:"3px solid #00000089"}}>
               <NavLink style={{textDecoration:"none",color:"black"}} to="/Home">
-                Home                
+                Home
               </NavLink>
               </button>
               </div>
@@ -182,7 +187,7 @@ class Edit extends React.Component {
             </form>
 
             <div style={{padding:"15px"}}>
-            <button style ={{border:"3px solid #00000089"}} onClick={() => window.location.reload(false)}>Back To Edit</button>         
+            <button style ={{border:"3px solid #00000089"}} onClick={() => window.location.reload(false)}>Back To Edit</button>
             </div>
           </div>
           </div>
@@ -196,7 +201,7 @@ class Edit extends React.Component {
             <h2 class="centerText">Edit Workshops</h2>
             <div style={{justifyContent:"left"}}>
             <form onSubmit={this.handleWorkshopsSubmit.bind(this)}>
-              
+
               <h3>Add</h3><br />
                 <label>Workshop Title
                   <input style={{width:"80%", border:"10px solid #00000069", borderradius:"10px"}} type="text" ref="title" /><br />
@@ -220,13 +225,13 @@ class Edit extends React.Component {
                   <textarea style={{width:"80%", border:"10px solid #00000069", borderradius:"10px"}} ref="prices" /><br />
                 </label>
               <input type="submit" value="Submit" />
-              
+
             </form>
             </div>
 
 
             <div style={{padding:"15px"}}>
-            <button style ={{border:"3px solid #00000089"}} onClick={() => window.location.reload(false)}>Back To Edit</button>         
+            <button style ={{border:"3px solid #00000089"}} onClick={() => window.location.reload(false)}>Back To Edit</button>
             </div>
             </div>
           </div>
@@ -243,7 +248,7 @@ class Edit extends React.Component {
             </form>
 
             <div style={{padding:"15px"}}>
-            <button style ={{border:"3px solid #00000089"}} onClick={() => window.location.reload(false)}>Back To Edit</button>         
+            <button style ={{border:"3px solid #00000089"}} onClick={() => window.location.reload(false)}>Back To Edit</button>
             </div>
           </div>
           </div>
@@ -270,7 +275,7 @@ class Edit extends React.Component {
             </form>
 
             <div style={{padding:"15px"}}>
-            <button style ={{border:"3px solid #00000089"}} onClick={() => window.location.reload(false)}>Back To Edit</button>         
+            <button style ={{border:"3px solid #00000089"}} onClick={() => window.location.reload(false)}>Back To Edit</button>
             </div>
             </div>
           </div>
@@ -305,7 +310,7 @@ class Edit extends React.Component {
             </form>
 
             <div style={{padding:"15px"}}>
-            <button style ={{border:"3px solid #00000089"}} onClick={() => window.location.reload(false)}>Back To Edit</button>         
+            <button style ={{border:"3px solid #00000089"}} onClick={() => window.location.reload(false)}>Back To Edit</button>
             </div>
             </div>
           </div>
@@ -324,7 +329,7 @@ class Edit extends React.Component {
             </form>
 
             <div style={{padding:"15px"}}>
-            <button style ={{border:"3px solid #00000089"}} onClick={() => window.location.reload(false)}>Back To Edit</button>         
+            <button style ={{border:"3px solid #00000089"}} onClick={() => window.location.reload(false)}>Back To Edit</button>
             </div>
             </div>
           </div>
@@ -341,7 +346,7 @@ class Edit extends React.Component {
             </form>
 
             <div style={{padding:"15px"}}>
-            <button style ={{border:"3px solid #00000089"}} onClick={() => window.location.reload(false)}>Back To Edit</button>         
+            <button style ={{border:"3px solid #00000089"}} onClick={() => window.location.reload(false)}>Back To Edit</button>
             </div>
             </div>
           </div>
@@ -358,7 +363,7 @@ class Edit extends React.Component {
             </form>
 
             <div style={{padding:"15px"}}>
-            <button style ={{border:"3px solid #00000089"}} onClick={() => window.location.reload(false)}>Back To Edit</button>         
+            <button style ={{border:"3px solid #00000089"}} onClick={() => window.location.reload(false)}>Back To Edit</button>
             </div>
             </div>
           </div>
@@ -377,7 +382,7 @@ class Edit extends React.Component {
             </form>
 
             <div style={{padding:"15px"}}>
-            <button style ={{border:"3px solid #00000089"}} onClick={() => window.location.reload(false)}>Back To Edit</button>         
+            <button style ={{border:"3px solid #00000089"}} onClick={() => window.location.reload(false)}>Back To Edit</button>
             </div>
             </div>
           </div>
@@ -397,7 +402,7 @@ class Edit extends React.Component {
               <div style={{padding:"15px"}}>
               <button style ={{border:"3px solid #00000089"}}>
               <NavLink style={{textDecoration:"none",color:"black"}} to="/Home">
-                Home                
+                Home
               </NavLink>
               </button>
             </div>

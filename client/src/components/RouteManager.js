@@ -36,6 +36,7 @@ class RouteManager extends React.Component {
 
   }
 
+  // sets authentication value in session storage
   setAuth(val) {
     this.setState({
       auth: val
@@ -43,6 +44,7 @@ class RouteManager extends React.Component {
     sessionStorage.setItem("auth", val);
   }
 
+  // gets authentication value from session storage
   getAuth() {
     return sessionStorage.getItem("auth")
   }
